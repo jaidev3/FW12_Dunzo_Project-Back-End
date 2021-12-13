@@ -1,0 +1,118 @@
+@import url("http://fonts.cdnfonts.com/css/gilroy-bold");
+body {
+  background-color: #f0f5f7;
+  font-family: "Gilroy-Regular", sans-serif;
+}
+/* -------Header Start------- */
+#header {
+  background-color: #ffffff;
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+  max-width: 1100px;
+  margin: auto;
+}
+#logo {
+  margin: auto;
+  height: 30px;
+  margin-left: 70px;
+  cursor: pointer;
+}
+.material-icons {
+  font-size: 35px;
+}
+#profile {
+  cursor: pointer;
+  margin: auto;
+  margin-right: 80px;
+  line-height: 0px;
+  font-size: 13px;
+}
+hr {
+  border: 1px solid rgb(235, 235, 235);
+}
+/* -------Header End------- */
+#p-r-t {
+  margin: 0 5%;
+}
+#p-r-t-t {
+  display: flex;
+  justify-content: space-between;
+}
+#p-r-t-t p:nth-child(1) {
+  font-size: 25px;
+  font-weight: bold;
+}
+#p-r-t-t p:nth-child(2) {
+  color: gray;
+  margin: auto 0;
+}
+
+/* ------- */
+#p-r-t-b > div {
+  font-size: 14px;
+  display: flex;
+  justify-content: space-between;
+  /* border: 1px solid red; */
+}
+#addRemove {
+  margin: auto;
+  display: flex;
+  border: 1px solid gainsboro;
+  height: 25px;
+  font-weight: bold;
+  border-radius: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+#addRemove button {
+  cursor: pointer;
+  height: 25px;
+  border: none;
+  font-size: 20px;
+  background-color: white;
+  color: #00b37a;
+}
+#addRemove button:nth-child(1) {
+  color: red;
+}
+#addRemove p {
+  margin: auto;
+}
+/* -------- */
+#p-r-m {
+  padding: 5px;
+  height: 35px;
+  border-top: 10px solid #f0f5f7;
+  display: flex;
+  border-bottom: 10px solid #f0f5f7;
+}
+#p-r-m i {
+  font-size: 20px;
+  margin: auto 5%;
+  margin-right: 2px;
+}
+#p-r-m input {
+  /* padding-left: 10px; */
+  font-family: "Gilroy-Medium", sans-serif;
+  border: 0px solid white;
+  width: 100%;
+}
+#p-r-b {
+  margin: 0 5%;
+}
+#p-r-b i {
+  font-size: 20px;
+  margin: auto 0;
+}
+#p-r-b > div {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  line-height: 0;
+}
+.text{
+  color: gray;
+  font-size: 12px;
+}
+/* -------Panels Box End- ------- */

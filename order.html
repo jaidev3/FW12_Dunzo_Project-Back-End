@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="stylesheet" href="./style/style.css">
+
+ 
+    <link rel="stylesheet" href="./CSS/style.css" />
+
+<script
+      src="https://kit.fontawesome.com/f1eae3bf56.js"
+      crossorigin="anonymous"
+    ></script>
+
+  </head>
+  <body>
+
+    <header id="navbar">
+     
+    </header>
+    <div class="container">
+      <div class="box1">
+        <div class="title">
+          <h1>Send packages</h1>
+          <p>Your on demand local courier</p>
+        </div>
+        <div>
+          <div class="cont1">
+            <div>
+              <div id="circle1"></div>
+              <div></div>
+              <div id="circle2"></div>
+            </div>
+          </div>
+          <div class="cont2">
+            <div class="adress1">
+              <p>PICKUP LOCATION</p>
+              <span class="star1">*</span>
+              <input id="open1"  type="text" placeholder="Search pickup location" />
+              <div class="modal-container1" id="modal_container1">
+                <div class="modal1">
+                  <div><div ><i ></i></div><div><i class= "far fa-window-close close1" ></i><h3>Search Pickup Location</h3><div><div ><div ><div><input id="searchbar"  name="searchText" autocomplete="off" placeholder="Search for an area, location name"  value=""></div></div><div ><i height="18px" width="18px"></i><div  ><h5 id="open3" class="close1" >Select location via map</h5></div></div></div></div></div> <div id="showcontent">  <img src="https://resources.dunzo.com/web-assets/prod/_next/static/images/partner_placeholder-f479db944bcaa4a7cc8451f617179d82.png" alt="" title="" width="225" height="175" class="sc-1go0t46-0 eYEVdz"></div></div>
+                </div>
+
+              </div>
+
+              <div class="modal-container3" id="modal_container3">
+                <form onsubmit="getDetails(event)" id="adress_form">
+                <div class="modal3">
+                  
+                    <div>
+                   
+                      <p  ><span >*</span> Flat, Floor, Building Name</p>
+                      <input type="text" id="af1" placeholder="eg.Second floor office" >
+                     </div>
+                     <div>
+                      <p><span >*</span> How To Reach</p>
+                      <input type="text" id="af2" placeholder="eg.Near metro station">
+                     </div>
+                     <div>
+                      <p><span>*</span> Contact Person Name</p>
+                      <input type="text" id="name" placeholder="eg.Nikhil">
+                     </div>
+                     <div>
+                      <p ><span >*</span> Contact Detail</p>
+                      <input type="number"  id="phn_number" placeholder="eg.1234567890">
+                     </div>
+                     <div>
+<input type="submit" class=" close3 btn" value="Continue" >
+                     </div>
+               
+                 
+                </div>
+              </form>
+              </div>
+
+              
+
+
+            </div>
+            <div class="adress2">
+              <p>DROP POINT</p>
+              <span class="star2">*</span>
+              <input type="text " id="open2" placeholder="Search drop location" />
+              <div class="modal-container2" id="modal_container2">
+                <div class="modal2">
+                  <div><div ><i ></i><i  class="far fa-window-close close2"></i></div><div ><h3>Search Drop Location</h3><div ><div ><div ><div><input id="searchbar2" name="searchText" autocomplete="off" placeholder="Search for an area, location name" class="f7phya-0 htHbFw" value=""></div></div><div ><i height="18px" width="18px" ></i><div ><h5 id="open4" class="close2">Select location via map</h5></div></div></div></div></div><div id="showcontent2"><img src="https://resources.dunzo.com/web-assets/prod/_next/static/images/partner_placeholder-f479db944bcaa4a7cc8451f617179d82.png" alt="" title="" width="225" height="175" class="sc-1go0t46-0 eYEVdz"></div>
+                  </div>
+                </div>
+              </div>
+
+<div class="modal-container4" id="modal_container4">
+  <form onsubmit="getDetails2(event)">
+                <div class="modal4">
+                 <div>
+                  <p  ><span >*</span> Flat, Floor, Building Name</p>
+                  <input type="text" id="adress1" placeholder="eg.Second floor office">
+                 </div>
+                 <div>
+                  <p><span >*</span> How To Reach</p>
+                  <input type="text" id="adress2" placeholder="eg.Near metro station">
+                 </div>
+                 <div>
+                  <p><span>*</span> Contact Person Name</p>
+                  <input type="text" id="name2" placeholder="eg.Nikhil">
+                 </div>
+                 <div>
+                  <p ><span >*</span> Contact Detail</p>
+                  <input type="number" id="phn_number2" maxlength="10" minlength="10" placeholder="eg.1234567890">
+                 </div>
+                 <div>
+                  <input type="submit" placeholder="continue" class="btn" id="close4" value="Continue">
+                 </div>
+                </div>
+              </form>
+              </div>
+
+
+            </div>
+          </div>
+        </div>
+        <div>
+          <div>
+            <input type="text" name="instructions" autocomplete="off" value="" disabled="" placeholder="Any instructions for the delivery partner?" class="">
+          </div>
+          <div class="mid">
+            <p>By confirming I accept this order doesn’t contain illegal/resticted items, if illegal/restricted items are found by Dunzo Partner, 
+              they may report it to the law enforcement authorities.<a href="/terms" target="_blank" >Terms and Conditions</a></p>
+          </div>
+          <div>
+
+
+           <button id="btn" ><a href="checkout.html">Pay Now</a> </button>
+
+
+
+          </div>
+        </div>
+      </div>
+      <div class="box2">
+        <div>
+          <p color="green.3" class="top">Some do’s &amp; Dont’s</p>
+        </div>
+        <div>
+          <span class="heading">No Purchases - </span
+          ><span class="content"
+            >Delivery partner would not be able to make any purchase</span
+          >
+        </div>
+        <div>
+          <span class="heading"
+            >Package Weight
+            - </span
+          ><span class="content"
+            >We cannot deliver items that can’t be easily carried on bike</span
+          >
+        </div>
+        <div>
+          <span class="heading">
+            No Autos/Cabs
+            - </span
+          ><span class="content"
+            >We will not be able to get something transported via these</span
+          >
+        </div>
+        <div>
+          <span class="heading">
+            Restricted/Illegal Item
+            - </span
+          ><span class="content"
+            >Please don’t hand over any restricted item</span
+          >
+        </div>
+        <div>
+          <img
+            src="https://resources.dunzo.com/web-assets/prod/_next/static/images/packages_pnd_small-8c969b49a1b0b58e35972d119309503b.png"
+            alt="pnd img"
+            title="pnd img"
+            width="308"
+            height="126"
+            class="sc-1go0t46-0 eZPzmn"
+          />
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+<script type="module">
+
+  import navbar from "./components/navbar.js";
+    let navbar_div = document.getElementById("navbar");
+    navbar_div.innerHTML = navbar();
+  
+   let open1 = document.getElementById("open1")
+   let close1 =document.querySelectorAll(".close1")
+  
+   let modal1 = document.getElementById("modal_container1")
+   
+   open1.addEventListener("click",()=>{
+     modal1.classList.add("show")
+     console.log("hello")
+   })
+   close1[0].addEventListener("click",()=>{
+     modal1.classList.remove("show")
+   })
+   close1[1].addEventListener("click",()=>{
+     modal1.classList.remove("show")
+   })
+
+
+
+
+    ///////////////////////////////popup//////////
+
+    const open_modal = document.getElementById("open_modal");
+    const modal_container = document.getElementById("modal-container");
+    const close_modal = document.getElementById("close-modal");
+    let btnmob = document.getElementById("btnmob");
+    let btnsignin = document.getElementById("btnsignin");
+    let otp = document.getElementById("otp");
+    let inpotp = document.getElementById("inpotp");
+    let inpmob = document.getElementById("inpmob");
+
+    btnmob.addEventListener("click", () => {
+      if (inpmob.value.length != 10) {
+        otp.innerText = "Please Enter correct number";
+      } else {
+        inpotp.classList.add("visible");
+        inpotp.classList.remove("invisible");
+        btnmob.classList.add("invisible");
+        btnsignin.classList.remove("invisible");
+        btnsignin.classList.add("visible");
+        otp.innerText = Math.floor(Math.random() * 10) + 1000;
+      }
+    });
+    btnsignin.addEventListener("click", () => {
+      if (otp.innerText == inpotp.value) {
+        alert("Sucessfully loged in");
+        // window.location.href="index.html"
+        open_modal.innerText = "Jaidev";
+      }
+    });
+
+    open_modal.addEventListener("click", () => {
+      modal_container.classList.add("show");
+    });
+
+    close_modal.addEventListener("click", () => {
+      modal_container.classList.remove("show");
+    });
+
+
+    
+
+   let open2 = document.getElementById("open2")
+   let close2 = document.querySelectorAll(".close2")
+   let modal2 = document.getElementById("modal_container2")
+   
+
+   open2.addEventListener("click",()=>{
+     modal2.classList.add("show")
+     console.log("hello")
+   })
+   close2[0].addEventListener("click",()=>{
+     modal2.classList.remove("show")
+   })
+   close2[1].addEventListener("click",()=>{
+     modal2.classList.remove("show")
+   })
+
+
+
+   let open3 = document.getElementById("open3")
+   let close3 = document.querySelector(".close3")
+   let modal3 = document.getElementById("modal_container3")
+   
+   open3.addEventListener("click",()=>{
+     modal3.classList.add("show")
+     console.log("hello")
+   })
+   close3.addEventListener("click",()=>{
+     modal3.classList.remove("show")
+   })
+
+   let open4 = document.getElementById("open4")
+   let close4 = document.getElementById("close4")
+   let modal4 = document.getElementById("modal_container4")
+   
+   open4.addEventListener("click",()=>{
+     modal4.classList.add("show")
+     console.log("hello")
+   })
+   close4.addEventListener("click",()=>{
+     modal4.classList.remove("show")
+   })
+
+
+
+
+
+
+   let adressField1 = document.getElementById("af1")
+let adressField2 = document.getElementById("af2")
+let name = document.getElementById("name")
+
+let phn_number = document.getElementById("phn_number")
+let form =document.getElementById("adress_form")
+
+
+
+   
+   window.getDetails = function (e) {
+     e.preventDefault()
+    
+
+  let pickup_location = document.getElementById("open1")
+  
+  let pickupLocation=  adressField1.value + ",  " + adressField2.value + "    ("+ name.value +" - " + phn_number.value + ")"
+
+  pickup_location.value = pickup_location.value+ " " + pickupLocation
+
+  let c1 = document.getElementById('circle1')
+  c1.style.backgroundColor = "rgb(0, 210, 144)"
+   }
+
+   let adress1 = document.getElementById("adress1")
+let adress2 = document.getElementById("adress2")
+let name2 = document.getElementById("name2")
+
+let phn_number2 = document.getElementById("phn_number2")
+
+window.getDetails2 = function (e) {
+     e.preventDefault()
+    
+
+  let drop_location = document.getElementById("open2")
+  console.log(adressField1.value)
+  let dropLocation = adress1.value + ",  " + adress2.value + "    ("+ name2.value + " - "+ "("+ phn_number2.value +")"+ ")"
+  drop_location.value= drop_location.value + " " + dropLocation
+
+let c2 = document.getElementById("circle2")
+
+c2.style.backgroundColor =  "rgb(0, 210, 144)"
+
+
+
+
+let box2 = document.querySelector(".box2")
+box2.style.padding = "25px"
+box2.innerHTML = null
+
+let div = document.createElement("div")
+let heading = document.createElement("h4")
+
+heading.textContent = "Invoice"
+let info1 = document.createElement("p")
+info1.textContent = "• Dunzo Cash cannot be used to Send Packages"
+info1.classList.add("content")
+
+let info2 = document.createElement("p")
+
+info2.textContent = "• Delivery charges may change after signing in"
+info2.classList.add("content")
+
+var x = getRandomNumberBetween(100,200)
+let payinfo1 = document.createElement("h3")
+payinfo1.textContent = "Partner delivery fee  :  "  + x
+ 
+let y = document.createElement("hr")
+let payinfo2 = document.createElement("h3")
+payinfo2.textContent = "To pay   :  " +x
+box2.append(div)
+div.append(heading,info1,info2,payinfo1,y,payinfo2)
+
+let data = {
+pickupLocation: adressField1.value + ",  " + adressField2.value + "    ("+ name.value + phn_number.value + ")",
+dropLocation:adress1.value + ",  " + adress2.value + "    ("+ name2.value + " - "+ phn_number2.value + ")",
+amount:x
+
+}
+console.log(data)
+if(localStorage.getItem("cart")===null){
+localStorage.setItem("cart",JSON.stringify([]))
+}
+
+let arr = JSON.parse(  localStorage.getItem("cart"))
+console.log(arr)
+arr.push(data)
+
+localStorage.setItem("cart",JSON.stringify(arr))
+   }
+
+
+
+   function getRandomNumberBetween(min,max){
+    return Math.floor(Math.random()*(max-min+1)+min);
+}
+
+let data = [
+{
+    StreetAddress: "Highland Drive",
+    Country: "India",
+    State: "Maharastra",
+    City: "Mumbai",
+    Zipcode: "121201"
+  },
+ 
+  {
+    StreetAddress: "Devon Court",
+    Country: "India",
+    State: "Maharastra",
+    City: "Mumbai",
+    Zipcode: "121201"
+  },
+  {
+    StreetAddress: "Cottage Street",
+    Country: "India",
+    State: "Maharastra",
+    City: "Mumbai",
+    Zipcode: "121201"
+  },
+  {
+    StreetAddress: "Front Street North",
+    Country: "India",
+    State: "Maharastra",
+    City: "Mumbai",
+    Zipcode: "121201"
+  },
+
+  {
+    StreetAddress: "Forest Street",
+    Country: "India",
+    State: "Maharastra",
+    City: "Mumbai",
+    Zipcode: "121201"
+  },
+  {
+    StreetAddress: "Jefferson Avenue",
+    Country: "India",
+    State: "Maharastra",
+    City: "Mumbai",
+    Zipcode: "121201"
+  },
+  {
+    StreetAddress: "Essex Court",
+    Country: "India",
+    State: "Maharastra",
+    City: "Mumbai",
+    Zipcode: "121201"
+  },
+  {
+    StreetAddress: "Charles Street",
+    Country: "India",
+    State: "Maharastra",
+    City: "Mumbai",
+    Zipcode: "121201"
+  },
+  {
+    StreetAddress: "Willow Avenue",
+    Country: "India",
+    State: "Maharastra",
+    City: "Mumbai",
+    Zipcode: "121201"
+  },
+  {
+    StreetAddress: "Briarwood Drive",
+    Country: "India",
+    State: "Maharastra",
+    City: "Mumbai",
+    Zipcode: "121201"
+  },
+  {
+    StreetAddress: "Laurel Drive",
+    Country: "India",
+    State: "Maharastra",
+    City: "Mumbai",
+    Zipcode: "121201"
+  },
+  {
+    StreetAddress: "Franklin Avenue",
+    Country: "India",
+    State: "Maharastra",
+    City: "Mumbai",
+    Zipcode: "121201"
+  },
+  {
+    StreetAddress: "Route 30",
+    Country: "India",
+    State: "Maharastra",
+    City: "Mumbai",
+    Zipcode: "121201"
+  },
+
+  {
+    StreetAddress: "Ann Street",
+    Country: "India",
+    State: "Maharastra",
+    City: "Mumbai",
+    Zipcode: "121201"
+  },
+
+  {
+    StreetAddress: "Summit Avenue",
+    Country: "India",
+    State: "Maharastra",
+    City: "Mumbai",
+    Zipcode: "121201"
+  },
+  {
+    StreetAddress: "Pleasant Street",
+    Country: "India",
+    State: "Maharastra",
+    City: "Mumbai",
+    Zipcode: "121201"
+  }
+]
+
+// function showAdress(){
+  
+
+// }
+
+// showAdress()
+
+//pickup location
+ 
+let search =document.getElementById("searchbar")
+
+search.addEventListener("keyup",(e)=>{
+  var showcontent = document.getElementById("showcontent")
+showcontent.innerHTML=null
+search.style.border = "1px solid rgb(16 213 151)"
+
+  let searchString =e.target.value
+console.log(searchString)
+
+  let filteredchar= data.filter(chracter=>{
+    return chracter.StreetAddress.includes(searchString)
+  })
+
+  let adressList =filteredchar
+  console.log(adressList)
+ if(adressList !=""){
+  let heading = document.createElement("h5")
+  heading.style.textAlign="left"
+heading.textContent = "Search results" 
+showcontent.append(heading)
+     adressList.forEach((e)=>{
+
+    let p = document.createElement("p")
+  
+    p.textContent = e.StreetAddress + ", "+ e.Country + ", "+e.State+", "+e.City
+    p.addEventListener("click",()=>{
+      console.log(p.textContent)
+      let input1 = document.getElementById("open1")
+      input1.value = p.textContent
+    })
+    p.style.fontSize = "14px"
+    showcontent.style.height = "300px"
+    showcontent.style.overflowY = "scroll"
+    showcontent.style.marginLeft = "40px"
+    let hr = document.createElement("hr")
+
+    showcontent.append(p,hr)
+
+
+  })
+ }
+
+
+
+
+
+})
+
+//drop location
+ 
+let search2 =document.getElementById("searchbar2")
+
+search2.addEventListener("keyup",(e)=>{
+  var showcontent2 = document.getElementById("showcontent2")
+showcontent2.innerHTML=null
+search2.style.border = "1px solid rgb(16 213 151)"
+  let searchString =e.target.value
+
+  let filteredchar= data.filter(chracter=>{
+    return chracter.StreetAddress.includes(searchString)
+  })
+  let adressList =filteredchar
+  console.log(adressList)
+ if(adressList !=""){
+  let heading = document.createElement("h5")
+  heading.style.textAlign="left"
+heading.textContent = "Search results" 
+showcontent2.append(heading)
+     adressList.forEach((e)=>{
+
+    let p = document.createElement("p")
+  
+    p.textContent = e.StreetAddress + ", "+ e.Country + ", "+e.State+", "+e.City
+    p.addEventListener("click",()=>{
+      console.log(p.textContent)
+      let input1 = document.getElementById("open2")
+      input1.value = p.textContent
+    })
+    p.style.fontSize = "14px"
+    showcontent2.style.height = "300px"
+    showcontent2.style.overflowY = "scroll"
+    showcontent2.style.marginLeft = "40px"
+    let hr = document.createElement("hr")
+
+    showcontent2.append(p,hr)
+
+
+  })
+ }
+
+
+
+
+
+})
+
+
+  </script>

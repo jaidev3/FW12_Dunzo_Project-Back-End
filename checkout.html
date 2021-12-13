@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Checkout</title>
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link href="./CSS/checkout.css" rel="stylesheet" />
+
+    <style></style>
+  </head>
+  <body>
+    <div style="background-color: #ffffff">
+      <div id="header">
+        <img
+          id="logo"
+          src="https://resources.dunzo.com/web-assets/prod/_next/static/images/logo-4d2d81aefcf296bc100d9edc114c2ea5.png"
+          onclick="gotoMain()"
+        />
+        <div id="profile">
+          <i class="material-icons">person_outline</i>
+          <p>Profile</p>
+        </div>
+      </div>
+    </div>
+    <div id="panels">
+      <div id="panel-l">
+        <div id="p-l-t">
+          <div id="p-l-t-t">
+            <h2>Add delivery address</h2>
+            <p>✒ CHANGE</p>
+          </div>
+          <p>Choose your delivery address from address book or add new</p>
+          <div id="p-l-t-m">
+            <div><a href="order.html">ADD NEW ADDRESS</a></div></a>   
+            <div>Jefferson Avenue, India, Maharastra, Mumbai</div>
+          </div>
+        </div>
+        <div id="p-l-b">
+          <div id="p-l-b-t">
+            <h2>Select payment method</h2>
+            <p>
+              Select your payment method form the existing one or add new one
+            </p>
+          </div>
+          <div id="p-l-b-m">
+            <div id="payMethods">
+              <h4 id="pm1">Offers for you</h4>
+              <h4 id="pm2">Wallets</h4>
+              <h4 id="pm3">Credit or Debit cards</h4>
+              <h4 id="pm4">UPI</h4>
+            </div>
+            <div id="payDisplay">
+              <div>
+                <img
+                  src="https://ik.imagekit.io/dunzo/tr:w-72,h-72,cm-pad_resize_payment_ico/icons/R4_Icons/payment/Simpl.png"
+                  id="pdimg"
+                />
+                <h4 id="pd1">Simpl</h4>
+              </div>
+              <p id="pd2">30% cashback upto Rs 60. No minimum order</p>
+              <hr />
+              <p id="pd3">
+                Your Simpl account is not linked. Please Link your Account.
+              </p>
+              <div>
+                <input type="text" placeholder="E.g rahul@icici" id="pd4" />
+                <button id="pd5">Link Account</button>
+              </div>
+            </div>
+            <div id="payDisplay2">
+              <h4>💳 ADD NEW CARD</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--  -->
+      <div id="panel-r">
+        <div id="p-r-t">
+          <div id="p-r-t-t">
+            <p>Your Cart</p>
+            <p id="count"></p>
+          </div>
+          <div id="p-r-t-m">
+            <hr />
+          </div>
+          <div id="p-r-t-b"></div>
+        </div>
+        <div id="p-r-m">
+          <i class="material-icons">input</i>
+          <input
+            type="text"
+            placeholder="Add instructions related to delivery?"
+          />
+        </div>
+        <div id="p-r-b">
+          <div style="justify-content: left">
+            <i class="material-icons">turned_in_not</i>
+            <h3 style="padding-left: 10px">Invoice</h3>
+          </div>
+          <div>
+            <p>Item total</p>
+            <p id="totalPrice"></p>
+          </div>
+          <hr />
+          <div>
+            <p>Packing</p>
+            <p>₹ 20</p>
+          </div>
+          <hr />
+          <div>
+            <p>Partner delivery fee</p>
+            <p>₹ 30</p>
+          </div>
+          <hr />
+          <div>
+            <h3>To pay</h3>
+            <h3 id="totalPriceFinal"></h3>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="payModal">
+      <form id="payForm">
+        <div>
+          <h2>Add New Card</h2>
+          <h1 id="close">&times;</h1>
+        </div>
+        <h4 class="ib">Card Number</h4>
+        <input type="number" placeholder="**** **** 1234" class="ib" />
+        <div>
+          <div>
+            <h4>Expiry Date</h4>
+            <input type="month" />
+          </div>
+          <div>
+            <h4>CVV</h4>
+            <input type="number" placeholder="e.g. 123" />
+          </div>
+        </div>
+        <h4 class="ib">Name on Card</h4>
+        <input type="text" placeholder="e.g. Rahul Mishra" class="ib" />
+        <p id="warning"></p>
+        <div>
+          <input type="checkbox" />
+          <h4 style="margin: auto">Save Card for Future transactions</h4>
+        </div>
+        <button id="finishBtn" onclick="gotoThank(event)">
+          Add Card & Pay
+        </button>
+      </form>
+    </div>
+  </body>
+</html>
+
+<script src="/JS/checkout.js"></script>
+
