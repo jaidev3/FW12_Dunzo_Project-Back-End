@@ -28,7 +28,7 @@ header{
     background-color: rgb(255, 255, 255);
     top: 0px;
     z-index: 11;
-    box-shadow: rgb(0 0 0 / 8%) 0px 2px 12px;
+    /* box-shadow: rgb(0 0 0 / 8%) 0px 2px 12px; */
 }
 
 header .header_left{
@@ -497,6 +497,10 @@ meta{
     padding: 20px 16px 16px;
     position: relative;
     box-shadow: rgb(0 0 0 / 6%) 0px 4px 7px;
+}
+.small_items_img{
+    width: 40px;
+    height: 40px;
 }
 
 .small_items_anchor a{

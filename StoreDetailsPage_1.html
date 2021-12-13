@@ -22,12 +22,12 @@
     }
     #location_detail {
       width: 100%;
-      height: 200px;
+      height: 230px;
       background-color: #f7fdfa;
       margin-top: 60px;
     }
     .width_content {
-      width: 55%;
+      width: 70%;
       min-height: 200px;
       /* background-color: rgb(102, 133, 133); */
       margin: auto;
@@ -60,13 +60,13 @@
     }
     #fruit_icon {
       display: grid;
-      grid-template-columns: 12% 70%;
+      grid-template-columns: 10% 70%;
       padding: 10px;
     }
     #apple_icon {
-      border-radius: 10px;
-      width: 100px;
-      height: 100px;
+      border-radius: 15px;
+      width: 90px;
+      height: 90px;
       background-color: #e4f9f1;
     }
     #apple_icon > div {
@@ -81,22 +81,22 @@
       <header id="navbar"></header>
       <div id="location_detail">
         <div class="width_content">
-          <p class="pt-10 font-size: 0.75rem">
-            <span class="text-green-300">Home </span> >
-            <span class="text-green-300">Mumbai</span> > Fruits & Vegetables
+          <p class="pt-10 ml-5 mb-5 font-sans text-xs font-semibold tracking-wider">
+            <span class="text-green-500 ">Home </span> -
+            <span class="text-green-500 ">Mumbai</span> - Fruits & Vegetables
           </p>
 
-          <div id="fruit_icon">
+          <div id="fruit_icon" class="ml-3">
             <div id="apple_icon">
-              <div>
+              <div >
                 <img
                   src="https://ik.imagekit.io/dunzo/icons/website/bluegreen/category/fruitsVegetables.png?tr=w-88,h-88,cm-pad_resize"
                   alt=""
                 />
               </div>
             </div>
-            <div class="ml-8">
-              <h1 class="font-bold text-2xl">Fruits & Vegetables in Mumbai</h1>
+            <div class="ml-3">
+              <h1 class="font-semibold font-sans text-3xl mt-4">Fruits & Vegetables in Mumbai</h1>
               <p>45 Stores</p>
             </div>
           </div>
@@ -206,15 +206,19 @@
         </div>
       </div>
 
-      <footer class="bottomfooter"></footer>
+      <footer id="footer" class="bottomfooter"></footer>
     </div>
   </body>
 </html>
 
 <script type="module">
   import navbar from "./components/navbar.js";
+  import footer from "./components/footer.js";
   let navbar_div = document.getElementById("navbar");
+  let footer_div = document.getElementById("footer");
   navbar_div.innerHTML = navbar();
+  footer_div.innerHTML = footer();
+
 
   var store_details = document.getElementById("store_details");
 
@@ -375,7 +379,7 @@
       let image1 = document.createElement("img");
       let location1 = document.createElement("p");
       let distance1 = document.createElement("p");
-      let title1 = document.createElement("h3");
+      let title1 = document.createElement("h1");
 
       //   div1.style.display = "block";
       //   div1.style.maxHeight = "350px";
@@ -384,39 +388,42 @@
         window.location.href = "FruitsDetails.html";
       };
       /////style////////////////////////////////////////////////////////////////
-
+      image1.style.borderRadius = "15px";
+      div_image.style.padding="5px"
+      div_image.style.borderRadius = "15px"
       div1.style.display = "grid";
+      div1.style.padding = "10px";
       div1.style.gridTemplateColumns = "30% 70%";
-      div1.style.gridGap = "20px";
-      div1.style.margin = "20px";
-      div1.style.borderRadius = "10px";
+      div1.style.gridGap = "15px";
+      div1.style.margin = "10px";
 
       div1.addEventListener("mouseover", () => {
         div1.style.display = "grid";
         div1.style.gridTemplateColumns = "30% 70%";
-        div1.style.gridGap = "20px";
-        div1.style.margin = "20px";
-        div1.style.borderRadius = "10px";
+        div1.style.gridGap = "15px";
+        div1.style.margin = "10px";
+        div1.style.borderRadius = "15px";
         div1.style.boxShadow = "rgba(0, 0, 0, 0.35) 0px 5px 15px";
       });
       div1.addEventListener("mouseout", () => {
         div1.style.boxShadow = "none";
         div1.style.display = "grid";
         div1.style.gridTemplateColumns = "30% 70%";
-        div1.style.gridGap = "20px";
-        div1.style.margin = "20px";
-        div1.style.borderRadius = "10px";
+        div1.style.gridGap = "15px";
+        div1.style.margin = "10px";
+        div1.style.borderRadius = "15px";
       });
 
       title1.style.margin = "0";
-      title1.style.padding = "5px 0px";
-      title1.style.fontWeight = "500";
+      title1.style.padding = "0px";
+      title1.style.fontWeight = "600";
+      title1.style.fontSize = "20px";
 
-      location1.style.padding = "5px 0px";
+      location1.style.padding = "0px";
       location1.style.margin = "0";
       distance1.style.margin = "0";
-      distance1.style.padding = "5px 0px";
-
+      distance1.style.padding = "0px";
+     // div_content.style.
       // ////source////////////////
       image1.src = product.image;
       title1.textContent = product.title;
