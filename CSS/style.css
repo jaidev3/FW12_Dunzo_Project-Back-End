@@ -51,10 +51,10 @@ header .header_right{
     align-items: center;
 }
 
-.header_box img{
+/* .header_box img{
     width: 122px;
     height: 28px;
-}
+} */
 
 .svg_location{
     height: 20px;
