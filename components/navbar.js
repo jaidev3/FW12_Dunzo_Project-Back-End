@@ -3,7 +3,7 @@ function navbar() {
     <div class="header_box">
             <div class="header_left">
                 <a href="./index.html">
-                    <img src="https://resources.dunzo.com/web-assets/prod/_next/static/images/logo-4d2d81aefcf296bc100d9edc114c2ea5.png" alt=""/>
+                    <img class="w-32 h-7" src="https://resources.dunzo.com/web-assets/prod/_next/static/images/logo-4d2d81aefcf296bc100d9edc114c2ea5.png" alt=""/>
                 </a>
                 <div class="svg_location_div">
                 <div class="svg_location_box">
@@ -60,16 +60,19 @@ function navbar() {
                   </div>
                  
                 </div>
+
+               <img class="h-16 w-16" src="https://resources.dunzo.com/web-assets/prod/_next/static/images/signin-icon-cb6e6a706f01b84896e60235a2392ac9.png"/>
+                <h1 class="text-xl font-semibold font-['Open_Sans'] mt-6" >Sign in</h1>
+                <p>Get started with Dunzo</p><br>
+                <p class="text-gray-500 mb-2"><span class="text-red-500">*</span>Enter Your Mobile No.</p>
+                <div class="flex flex-row border-solid border-gray-300 border rounded-lg"> <div class="w-10 text-center mt-3">+91</div>
+                <input type="tel" placeholder="Mobile number" class="w-full h-12 rounded-lg" id="inpmob"/></div>
                
-                <h1 class="" >Sign in or Sign up</h1>
-                <p>Get started with Dunzo</p><br><br>
-                <p>Enter Your Mobile No.</p>
-                <input type="tel" placeholder="Mobile number" class="w-full border-solid border-gray-300 border" id="inpmob"></input>
                 <p id="otp"></p><br>
-                <input type="tel" placeholder="Entre OTP" class="w-full border-solid border-gray-300 border invisible " id="inpotp"></input>
+                <input type="tel" placeholder="Entre OTP" class="w-full border-solid rounded-xl w-12 border-gray-300 border invisible " id="inpotp"></input>
                 <br><br>
 
-                <button id="btnmob" class="w-full bg-green-300">Send OTP</button>
+                <button id="btnmob" class="w-full bg-green-400 h-14 rounded-full text-white">Send OTP</button>
                 <button id="btnsignin" class="w-full bg-green-300 invisible">Continue</button>
                 
                 
