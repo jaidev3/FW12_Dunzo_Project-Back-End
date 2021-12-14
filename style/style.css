@@ -832,3 +832,8 @@ button>a{
 #btn{
   background-color: rgb(0, 210, 144);
 }
+
+
+#showcontent img{
+  width: 50%;
+}
