@@ -82,6 +82,45 @@
       #searchIn:focus {
         border: 1px solid #00d290;
       }
+      #lowerDiv {
+        display: flex;
+        /* border: 1px solid red; */
+        width: 1100px;
+        margin: 0 auto;
+      }
+      #diff_cat p {
+        padding-top: 20px;
+        /* border: 1px solid red; */
+      }
+      #lowerDiv > div:nth-child(2) {
+        width: 500px;
+      }
+      #diff_cat p:hover {
+        font-family: "Gilroy-Regular", sans-serif;
+        cursor: pointer;
+        color: #00d290;
+      }
+      #products {
+        /* width: 6000px */
+        border-left: 1px solid gainsboro;
+        border-right: 1px solid gainsboro;
+      }
+      #products h1 {
+        margin-top: 0px;
+        padding: 15px;
+        background-color: #f3f3f5;
+        font-size: 30px;
+      }
+      #cart {
+        padding-left: 20px;
+        /* border: 1px solid red; */
+      }
+      #cartUpper {
+        font-size: 10px;
+      }
+      #cart img {
+        width: 250px;
+      }
     </style>
   </head>
   <body>
@@ -120,7 +159,7 @@
 
     <hr />
 
-    <div class="width_content">
+    <div>
       <div id="lowerDiv">
         <div id="diff_cat">
           <p>Fresh Fruits</p>
@@ -129,11 +168,16 @@
           <p>Fresh Breakfast & Dairy</p>
           <p>Crispy Snacks</p>
         </div>
-        <div id="products"></div>
+        <div id="products">
+          <h1>Fresh Fruits</h1>
+        </div>
         <div id="cart">
           <div id="cartUpper">
             <h1>Your Cart <span id="cartL"></span></h1>
           </div>
+          <img
+            src="https://resources.dunzo.com/web-assets/prod/_next/static/images/no-items-in-cart-7e84056f44993b68d14184f9b2992af7.png"
+          />
           <div id="addedToCrt"></div>
         </div>
       </div>
@@ -241,7 +285,8 @@
   let cart = JSON.parse(localStorage.getItem("dunzoCart"));
   console.log("dunzoCart:", cart.length);
 
-  document.getElementById("cartL").textContent = "(" + cart.length + " item)";
+  document.getElementById("cartL").textContent =
+    `( ` + cart.length + ` Item's )`;
 
   function showCartProducts() {
     cart.forEach(function (product) {
