@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <!-- <script src="store.js"></script> -->
+</head>
+<body>
+   <input type="submit" value="submit"  id="btn"/>
+   <div id="divdata"></div>
+</body>
+</html>
+<script>
+
+document.getElementById("btn").addEventListener("click", geter);
+var data1;
+function geter(){
+    console.log("hello world");
+    config={
+        method: 'GET',
+        url: 'http://localhost:2345/store'
+    }
+    const pr =axios(config); 
+    pr.then((res) => {
+        data1 =res.data
+        show(data1)
+        console.log(data1);
+    })
+}
+//geter()
+
+function show(data1){
+    console.log(data1);
+}
+</script>
