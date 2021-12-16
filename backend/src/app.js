@@ -21,6 +21,8 @@ app.use(cors());
 // })
 
 
+app.set('view engine', 'ejs');
+
 app.use("/store", storeController)
 app.use("/item", itemController)
 app.use("/cart", cartController)
