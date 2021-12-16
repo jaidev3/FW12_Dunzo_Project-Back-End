@@ -234,7 +234,7 @@
     }
     const pr =axios(config); 
     pr.then((res) => {
-        const data =res.data
+        const data =res.data.user
         console.log(res.data);
     
     data.forEach(function (product) {
