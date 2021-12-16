@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      href="https://softstribe.com/app/uploads/icons/com-dunzo-user-icon.jpg"
+      type="image/icon type"
+    />
+    <link
+      href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./CSS/style.css" />
+    <title>Order From Fruits And Vegetables</title>
+  </head>
+  <style>
+    body {
+      font-family: sans-serif;
+    }
+    #location_detail {
+      width: 100%;
+      height: 230px;
+      background-color: #f7fdfa;
+      margin-top: 60px;
+    }
+    .width_content {
+      width: 70%;
+      min-height: 200px;
+      /* background-color: rgb(102, 133, 133); */
+      margin: auto;
+      margin-top: 5px;
+    }
+    #store_details {
+      display: grid;
+      grid-template-columns: 47% 47%;
+      column-gap: 6%;
+      padding: 10px;
+      box-sizing: border-box;
+    }
+    img {
+      width: 100%;
+      height: 100%;
+      border-radius: 10px;
+    }
+    #image {
+      height: 100%;
+      width: 100%;
+      border-radius: 10px;
+      padding: 10px;
+      box-sizing: border-box;
+    }
+    p {
+      color: rgb(160, 160, 160);
+    }
+    .specialmargin {
+      margin-left: 30%;
+    }
+    #fruit_icon {
+      display: grid;
+      grid-template-columns: 10% 70%;
+      padding: 10px;
+    }
+    #apple_icon {
+      border-radius: 15px;
+      width: 90px;
+      height: 90px;
+      background-color: #e4f9f1;
+    }
+    #apple_icon > div {
+      width: 60%;
+      height: 60%;
+      margin-top: 20px;
+      margin-left: 20px;
+    }
+  </style>
+  <body>
+    <div>
+      <header id="navbar"></header>
+      <div id="location_detail">
+        <div class="width_content">
+          <p class="pt-10 ml-5 mb-5 font-sans text-xs font-semibold tracking-wider">
+            <span class="text-green-500 ">Home </span> -
+            <span class="text-green-500 ">Mumbai</span> - Fruits & Vegetables
+          </p>
+
+          <div id="fruit_icon" class="ml-3">
+            <div id="apple_icon">
+              <div >
+                <img
+                  src="https://ik.imagekit.io/dunzo/icons/website/bluegreen/category/fruitsVegetables.png?tr=w-88,h-88,cm-pad_resize"
+                  alt=""
+                />
+              </div>
+            </div>
+            <div class="ml-3">
+              <h1 class="font-semibold font-sans text-3xl mt-4">Fruits & Vegetables in Mumbai</h1>
+              <p>45 Stores</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="stores">
+        <div class="width_content" id="store_details"></div>
+      </div>
+
+      <div id="page_nav">
+        <div class="width_content">
+          <div class="flex items-center space-x-1 specialmargin">
+            <a
+              href="StoreDetailsPage_1.html"
+              class="
+                flex
+                items-center
+                px-4
+                py-2
+                text-gray-500
+                bg-gray-300
+                rounded-md
+              "
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-6 h-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M11 17l-5-5m0 0l5-5m-5 5h12"
+                />
+              </svg>
+            </a>
+
+            <a
+              href="StoreDetailsPage_1.html"
+              class="
+                px-4
+                py-2
+                text-gray-700
+                bg-gray-200
+                rounded-md
+                hover:bg-blue-400 hover:text-white
+              "
+            >
+              1
+            </a>
+            <a
+              href="StoreDetailsPage_2.html"
+              class="
+                px-4
+                py-2
+                text-gray-700
+                bg-gray-200
+                rounded-md
+                hover:bg-blue-400 hover:text-white
+              "
+            >
+              2
+            </a>
+            <a
+              href="StoreDetailsPage_3.html"
+              class="
+                px-4
+                py-2
+                text-gray-700
+                bg-gray-200
+                rounded-md
+                hover:bg-blue-400 hover:text-white
+              "
+            >
+              3
+            </a>
+            <a
+              href="StoreDetailsPage_3.html"
+              class="
+                px-4
+                py-2
+                text-gray-500
+                bg-gray-300
+                rounded-md
+                hover:bg-blue-400 hover:text-white
+              "
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-6 h-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M13 7l5 5m0 0l-5 5m5-5H6"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <footer id="footer" class="bottomfooter"></footer>
+    </div>
+  </body>
+</html>
+
+<script type="module">
+  import navbar from "./components/navbar.js";
+  import footer from "./components/footer.js";
+  let navbar_div = document.getElementById("navbar");
+  let footer_div = document.getElementById("footer");
+  navbar_div.innerHTML = navbar();
+  footer_div.innerHTML = footer();
+
+
+  var store_details = document.getElementById("store_details");
+
+  let data = [
+    {
+      id: 1,
+      image:
+        "https://ik.imagekit.io/dunzo/dunzo-catalog-prod/tr:w-250,h-250,cm-pad_resize_store_thumbnail/stores/YVhhQjd0NjRTMEEyT0QzdkJxVHRjdz09-1588070345352-store_image.jpg",
+      title: "Amjad Ali Fruits Shop",
+      location: "Green Park",
+      distance: 2,
+    },
+    {
+      id: 2,
+      image:
+        "https://ik.imagekit.io/dunzo/dunzo-catalog-prod/tr:w-250,h-250,cm-pad_resize_store_thumbnail/stores/0ba4b748-00e6-47d1-920e-edef8358a619-1618463770061-store_image.jpeg",
+      title: "The Fresh Vegetable",
+      location: "Lajpat Nagar",
+      distance: 2.8,
+    },
+    {
+      id: 3,
+      image:
+        "https://ik.imagekit.io/dunzo/dunzo-catalog-prod/tr:w-250,h-250,cm-pad_resize_store_thumbnail/stores/SnI4MDBneEZ4NnhrN1MzaHlLU3F2UT09-1604080818825-store_image.jpg",
+      title: "Fruitz N Veggiez",
+      location: "Masjid Moth Village",
+      distance: 0.3,
+    },
+    {
+      id: 4,
+      image:
+        "https://ik.imagekit.io/dunzo/dunzo-catalog-prod/tr:w-250,h-250,cm-pad_resize_store_thumbnail/stores/d4410f95-c53c-4249-9506-d38e8a4226c0-1630928299652-store_image.jpeg",
+      title: "Om Fresh. Mart",
+      location: "Malviya Nagar",
+      distance: 3.8,
+    },
+    {
+      id: 5,
+      image:
+        "https://ik.imagekit.io/dunzo/dunzo-catalog-prod/tr:w-250,h-250,cm-pad_resize_store_thumbnail/stores/1b7c6983-86c9-4861-8279-100925bbfd64-1606295725532-store_image.jpg",
+      title: "The Himachal Produce Shoppe",
+      location: "Yusuf Mandi",
+      distance: 1.5,
+    },
+    {
+      id: 6,
+      image:
+        "https://ik.imagekit.io/dunzo/dunzo-catalog-prod/tr:w-250,h-250,cm-pad_resize_store_thumbnail/stores/R2hReFFvdkYrU0cvTENqTGw0MEV6dz09-1593677954526-store_image.jpg",
+      title: "Samjad Fruit Shop",
+      location: "Gautam Nagar",
+      distance: 3,
+    },
+    {
+      id: 7,
+      image:
+        "https://ik.imagekit.io/dunzo/dunzo-catalog-prod/tr:w-250,h-250,cm-pad_resize_store_thumbnail/stores/f564cb1c-6d4f-4740-a613-5748e11113db-1621510634255-store_image.jpg",
+      title: "Anil Fruit Merchant",
+      location: "Lodhi Colony",
+      distance: 3.8,
+    },
+    {
+      id: 8,
+      image:
+        "https://ik.imagekit.io/dunzo/dunzo-catalog-prod/tr:w-250,h-250,cm-pad_resize_store_thumbnail/stores/dHcva0p4QVJmN3BxbkpORTN0ZFVRUT09-1587626802010-store_image.jpg",
+      title: "Deal 4 Grocery",
+      location: "South Extension 2",
+      distance: 1.3,
+    },
+    {
+      id: 9,
+      image:
+        "https://ik.imagekit.io/dunzo/dunzo-catalog-prod/tr:w-250,h-250,cm-pad_resize_store_thumbnail/stores/aC9HUzJqUml5ekIzSWR1Q1F3a05BQT09-1592907853950-store_image.jpg",
+      title: "Rizwan Fruits And Vegetables shop",
+      location: "Gautam Nagar",
+      distance: 4.8,
+    },
+    {
+      id: 10,
+      image:
+        "https://ik.imagekit.io/dunzo/dunzo-catalog-prod/tr:w-250,h-250,cm-pad_resize_store_thumbnail/stores/eUpLYVZoazVEWm13dXZaTHFmMlQzQT09-1582190082324-store_image.jpg",
+      title: "Arjun Fruits and Vegetables",
+      location: "Hauz Khas 1",
+      distance: 2.5,
+    },
+    {
+      id: 11,
+      image:
+        "https://ik.imagekit.io/dunzo/dunzo-catalog-prod/tr:w-250,h-250,cm-pad_resize_store_thumbnail/stores/eUpLYVZoazVEWm13dXZaTHFmMlQzQT09-1582190082324-store_image.jpg",
+      title: "GWALA DAIRY",
+      location: "Greater Kailash",
+      distance: 4,
+    },
+    {
+      id: 12,
+      image:
+        "https://ik.imagekit.io/dunzo/dunzo-catalog-prod/tr:w-250,h-250,cm-pad_resize_store_thumbnail/stores/aC9HUzJqUml5ekIzSWR1Q1F3a05BQT09-1592907853950-store_image.jpg",
+      title: "Prem Fruits and Vegetables",
+      location: "Malviya Nagar",
+      distance: 4.8,
+    },
+    {
+      id: 13,
+      image:
+        "https://ik.imagekit.io/dunzo/dunzo-catalog-prod/tr:w-250,h-250,cm-pad_resize_store_thumbnail/stores/Z2tyRTQzenRKeW4xYW04ekxoV3BSZz09-1577703419991-store_image.jpg",
+      title: "Shiv Shankar Fruits",
+      location: "Green Park",
+      distance: 2.3,
+    },
+    {
+      id: 14,
+      image:
+        "https://ik.imagekit.io/dunzo/dunzo-catalog-prod/tr:w-250,h-250,cm-pad_resize_store_thumbnail/stores/5e252a0e-ba37-4b86-a1d1-711f6e361168-1563962206090-store_image.jpg",
+      title: "Samar Fruit & Veg Mart",
+      location: "Malviya Nagar",
+      distance: 5.8,
+    },
+    {
+      id: 15,
+      image:
+        "https://ik.imagekit.io/dunzo/dunzo-catalog-prod/tr:w-250,h-250,cm-pad_resize_store_thumbnail/stores/VmoyRUdBdHJzUGxTNWdab1BXSlNBdz09-1575616725728-store_image.jpg",
+      title: "Be Healthy Fruits And Vegetables Shop",
+      location: "Gautam Nagar",
+      distance: 3.5,
+    },
+    {
+      id: 16,
+      image:
+        "https://ik.imagekit.io/dunzo/dunzo-catalog-prod/tr:w-250,h-250,cm-pad_resize_store_thumbnail/stores/018fe9a2-0a4e-44f5-a368-dae9636ce41d-1608191365977-store_image.jpg",
+      title: "Fresh Fruits And Vegetables Shop",
+      location: "Hauz Khas 1",
+      distance: 5,
+    },
+    {
+      id: 17,
+      image:
+        "https://ik.imagekit.io/dunzo/dunzo-catalog-prod/tr:w-250,h-250,cm-pad_resize_store_thumbnail/stores/ZTIvaWhUQ2c4QzgyN0tubjkrNm13dz09-1612356786429-store_image.jpg",
+      title: "Foodhall",
+      location: "Chanakya Mall, Chanakyapuri",
+      distance: 5.8,
+    },
+    {
+      id: 18,
+      image:
+        "https://ik.imagekit.io/dunzo/dunzo-catalog-prod/tr:w-250,h-250,cm-pad_resize_store_thumbnail/stores/L283cXhjVDRyQXE5dlNkSFQrcWFDUT09-1618822093903-store_image.jpg",
+      title: "Ace Comnet",
+      location: "Greater Kailash",
+      distance: 3.3,
+    },
+    {
+      id: 19,
+      image:
+        "https://ik.imagekit.io/dunzo/dunzo-catalog-prod/tr:w-250,h-250,cm-pad_resize_store_thumbnail/stores/L283cXhjVDRyQXE5dlNkSFQrcWFDUT09-1618822093903-store_image.jpg",
+      title: "12*Seven Grocery Store",
+      location: "Greater Kailash",
+      distance: 6.8,
+    },
+    {
+      id: 20,
+      image:
+        "https://ik.imagekit.io/dunzo/dunzo-catalog-prod/tr:w-250,h-250,cm-pad_resize_store_thumbnail/stores/S2ZPUkl5bXdndlh6MTdiQXQxb1Rvdz09-1600072084759-store_image.jpg",
+      title: "Savers Super Market",
+      location: "Greater Kailash",
+      distance: 4.5,
+    },
+    {
+      id: 21,
+      image:
+        "https://ik.imagekit.io/dunzo/dunzo-catalog-prod/tr:w-250,h-250,cm-pad_resize_store_thumbnail/stores/WUMzNUNKQmRYTnJaNEI4RWdUYkJyZz09-1619428244402-store_image.jpg",
+      title: "Shakti Fruits",
+      location: "Rabindra Nagar",
+      distance: 6,
+    },
+    {
+      id: 22,
+      image:
+        "https://ik.imagekit.io/dunzo/dunzo-catalog-prod/tr:w-250,h-250,cm-pad_resize_store_thumbnail/stores/WWlBem1zYkNSVGlIRmcyeGpLY1ZKQT09-1598619299209-store_image.jpg",
+      title: "Sunder General Store",
+      location: "Saket",
+      distance: 6.8,
+    },
+    {
+      id: 23,
+      image:
+        "https://ik.imagekit.io/dunzo/dunzo-catalog-prod/tr:w-250,h-250,cm-pad_resize_store_thumbnail/stores/WHhwOER6RDJHODh6K2lvQzFvT0VvZz09-1626958632613-store_image.jpg",
+      title: "Garima Fruits And Vegetables",
+      location: "Sainik Farm",
+      distance: 4.3,
+    },
+    {
+      id: 24,
+      image:
+        "https://ik.imagekit.io/dunzo/dunzo-catalog-prod/tr:w-250,h-250,cm-pad_resize_store_thumbnail/stores/be9c6c77-ff85-4bba-85e5-05b4c5058c25-1604036094259-store_image.jpeg",
+      title: "Shiv General Store",
+      location: "near Saket Metro",
+      distance: 7.8,
+    },
+    {
+      id: 25,
+      image:
+        "https://ik.imagekit.io/dunzo/dunzo-catalog-prod/tr:w-250,h-250,cm-pad_resize_store_thumbnail/stores/S2ZPUkl5bXdndlh6MTdiQXQxb1Rvdz09-1600072084759-store_image.jpg",
+      title: "Le Marche",
+      location: "Vasant Vihar",
+      distance: 5.5,
+    },
+    {
+      id: 26,
+      image:
+        "https://ik.imagekit.io/dunzo/dunzo-catalog-prod/tr:w-250,h-250,cm-pad_resize_store_thumbnail/stores/R2k0UDRvN3RENVBKSkVoanNpYS9LQT09-1574761173259-store_image.jpg",
+      title: "Fresho Fruits And Vegetables",
+      location: "Chhatarpur",
+      distance: 7,
+    },
+    {
+      id: 27,
+      image:
+        "https://ik.imagekit.io/dunzo/dunzo-catalog-prod/tr:w-250,h-250,cm-pad_resize_store_thumbnail/stores/b02ca0ea-4cf5-40ea-b5eb-1baa3b86e25e-1619004966971-store_image.jpeg",
+      title: "Unique Fresh",
+      location: "Karol Bagh",
+      distance: 7.8,
+    },
+    {
+      id: 28,
+      image:
+        "https://ik.imagekit.io/dunzo/dunzo-catalog-prod/tr:w-250,h-250,cm-pad_resize_store_thumbnail/stores/NVhDdXFZaEtMK1RKRElUeFBGUEFFQT09-1622560860559-store_image.jpg",
+      title: "The Fresh Produce Shoppe",
+      location: "Green Park",
+      distance: 5.3,
+    },
+    {
+      id: 29,
+      image:
+        "https://ik.imagekit.io/dunzo/dunzo-catalog-prod/tr:w-250,h-250,cm-pad_resize_store_thumbnail/stores/dzNmdkhiV2V0Z0tSWnhNM2pYM3MzUT09-1632134587070-store_image.jpg",
+      title: "The Fresh Produce Shoppe",
+      location: "Panchsheel Enclave",
+      distance: 8.8,
+    },
+    {
+      id: 30,
+      image:
+        "https://ik.imagekit.io/dunzo/dunzo-catalog-prod/tr:w-250,h-250,cm-pad_resize_store_thumbnail/stores/R2k0UDRvN3RENVBKSkVoanNpYS9LQT09-1574761173259-store_image.jpg",
+      title: "Modern Bazaar",
+      location: "Kailash Colony",
+      distance: 6.5,
+    },
+    {
+      id: 31,
+      image:
+        "https://ik.imagekit.io/dunzo/dunzo-catalog-prod/tr:w-250,h-250,cm-pad_resize_store_thumbnail/stores/b02ca0ea-4cf5-40ea-b5eb-1baa3b86e25e-1619004966971-store_image.jpeg",
+      title: "VegOrganics",
+      location: "Kailash",
+      distance: 8,
+    },
+    {
+      id: 32,
+      image:
+        "https://ik.imagekit.io/dunzo/dunzo-catalog-prod/tr:w-250,h-250,cm-pad_resize_store_thumbnail/stores/dzNmdkhiV2V0Z0tSWnhNM2pYM3MzUT09-1632134587070-store_image.jpg",
+      title: "The Vegetable Farm",
+      location: "HAUZ KHAS",
+      distance: 8.8,
+    },
+    {
+      id: 33,
+      image:
+        "https://ik.imagekit.io/dunzo/dunzo-catalog-prod/tr:w-250,h-250,cm-pad_resize_store_thumbnail/stores/b02ca0ea-4cf5-40ea-b5eb-1baa3b86e25e-1619004966971-store_image.jpeg",
+      title: "Modern Bazaar",
+      location: "New Friends Colony (NFC)",
+      distance: 6.3,
+    },
+    {
+      id: 34,
+      image:
+        "https://ik.imagekit.io/dunzo/dunzo-catalog-prod/tr:w-250,h-250,cm-pad_resize_store_thumbnail/stores/NVhDdXFZaEtMK1RKRElUeFBGUEFFQT09-1622560860559-store_image.jpg",
+      title: "Gupta Vegetables",
+      location: "R.k puram",
+      distance: 9.8,
+    },
+    {
+      id: 35,
+      image:
+        "https://ik.imagekit.io/dunzo/dunzo-catalog-prod/tr:w-250,h-250,cm-pad_resize_store_thumbnail/stores/R2k0UDRvN3RENVBKSkVoanNpYS9LQT09-1574761173259-store_image.jpg",
+      title: "Sanjay Exotic Vegetable & Fruit Shop",
+      location: "Kalkaji",
+      distance: 7.5,
+    },
+    {
+      id: 36,
+      image:
+        "https://ik.imagekit.io/dunzo/dunzo-catalog-prod/tr:w-250,h-250,cm-pad_resize_store_thumbnail/stores/S2ZPUkl5bXdndlh6MTdiQXQxb1Rvdz09-1600072084759-store_image.jpg",
+      title: "Le Marche",
+      location: "New Friends Colony",
+      distance: 9,
+    },
+    {
+      id: 37,
+      image:
+        "https://ik.imagekit.io/dunzo/dunzo-catalog-prod/tr:w-250,h-250,cm-pad_resize_store_thumbnail/stores/S2ZPUkl5bXdndlh6MTdiQXQxb1Rvdz09-1600072084759-store_image.jpg",
+      title: "The Fresh Produce Shoppe",
+      location: "Vasant Vihar",
+      distance: 9.8,
+    },
+    {
+      id: 38,
+      image:
+        "https://ik.imagekit.io/dunzo/dunzo-catalog-prod/tr:w-250,h-250,cm-pad_resize_store_thumbnail/stores/a009f1b1-ee1c-4c90-81f8-478adbba7982-1567680641791-store_image.jpg",
+      title: "Modern Bazaar",
+      location: "Vasant Vihar",
+      distance: 7.3,
+    },
+    {
+      id: 39,
+      image:
+        "https://ik.imagekit.io/dunzo/dunzo-catalog-prod/tr:w-250,h-250,cm-pad_resize_store_thumbnail/stores/VXhuY3RrcXJlN2MyQ1A1cS9QQlNSUT09-1591949293450-store_image.jpg",
+      title: "Yadav Enterprises",
+      location: "New Friends Colony",
+      distance: 10.8,
+    },
+    {
+      id: 40,
+      image:
+        "https://ik.imagekit.io/dunzo/dunzo-catalog-prod/tr:w-250,h-250,cm-pad_resize_store_thumbnail/stores/R2k0UDRvN3RENVBKSkVoanNpYS9LQT09-1574761173259-store_image.jpg",
+      title: "Grameen Mandi",
+      location: "Mehrauli",
+      distance: 8.5,
+    },
+    {
+      id: 41,
+      image:
+        "https://ik.imagekit.io/dunzo/dunzo-catalog-prod/tr:w-250,h-250,cm-pad_resize_store_thumbnail/stores/690f226e-1356-4a38-95d8-e2237fa7289d-1548397334047-store_image.jpg",
+      title: "Foodhall",
+      location: "DLF Promenade, Vasant Kunj",
+      distance: 10,
+    },
+    {
+      id: 42,
+      image:
+        "https://ik.imagekit.io/dunzo/dunzo-catalog-prod/tr:w-250,h-250,cm-pad_resize_store_thumbnail/stores/U1JXYWN5QWkvK1N2b29HdzdreURYdz09-1621510781813-store_image.jpg",
+      title: "Honey Money Top",
+      location: "Chhatarpur",
+      distance: 10.8,
+    },
+  ];
+
+  function showProduct() {
+    data.forEach(function (product) {
+      let div1 = document.createElement("div");
+
+      let div_image = document.createElement("div");
+      let div_content = document.createElement("div");
+
+      let image1 = document.createElement("img");
+      let location1 = document.createElement("p");
+      let distance1 = document.createElement("p");
+      let title1 = document.createElement("h1");
+
+      //   div1.style.display = "block";
+      //   div1.style.maxHeight = "350px";
+      //   div1.style.marginBottom = "80px";
+      div1.onclick = function () {
+        window.location.href = "FruitsDetails.html";
+      };
+      /////style////////////////////////////////////////////////////////////////
+      image1.style.borderRadius = "15px";
+      div_image.style.padding="5px"
+      div_image.style.borderRadius = "15px"
+      div1.style.display = "grid";
+      div1.style.padding = "10px";
+      div1.style.gridTemplateColumns = "30% 70%";
+      div1.style.gridGap = "15px";
+      div1.style.margin = "10px";
+
+      div1.addEventListener("mouseover", () => {
+        div1.style.display = "grid";
+        div1.style.gridTemplateColumns = "30% 70%";
+        div1.style.gridGap = "15px";
+        div1.style.margin = "10px";
+        div1.style.borderRadius = "15px";
+        div1.style.boxShadow = "rgba(0, 0, 0, 0.35) 0px 5px 15px";
+      });
+      div1.addEventListener("mouseout", () => {
+        div1.style.boxShadow = "none";
+        div1.style.display = "grid";
+        div1.style.gridTemplateColumns = "30% 70%";
+        div1.style.gridGap = "15px";
+        div1.style.margin = "10px";
+        div1.style.borderRadius = "15px";
+      });
+
+      title1.style.margin = "0";
+      title1.style.padding = "0px";
+      title1.style.fontWeight = "600";
+      title1.style.fontSize = "20px";
+
+      location1.style.padding = "0px";
+      location1.style.margin = "0";
+      distance1.style.margin = "0";
+      distance1.style.padding = "0px";
+     // div_content.style.
+      // ////source////////////////
+      image1.src = product.image;
+      title1.textContent = product.title;
+      location1.textContent = product.location;
+      distance1.textContent = product.distance + " km";
+
+      div_image.append(image1);
+
+      div_content.append(title1, location1, distance1);
+
+      div1.append(div_image, div_content);
+
+      store_details.append(div1);
+    });
+  }
+  showProduct();
+
+  ///////////////////////////////popup//////////
+
+  const open_modal = document.getElementById("open_modal");
+  const modal_container = document.getElementById("modal-container");
+  const close_modal = document.getElementById("close-modal");
+
+  let dunzoUser = JSON.parse(localStorage.getItem('dunzoUser'));
+
+  if(dunzoUser.length){
+    open_modal.innerText = dunzoUser[0].name;
+  }
+
+  open_modal.addEventListener("click", () => {
+    modal_container.classList.add("show");
+  });
+
+  close_modal.addEventListener("click", () => {
+    modal_container.classList.remove("show");
+  });
+</script>

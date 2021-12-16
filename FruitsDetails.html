@@ -19,6 +19,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <style>
       * {
         /* border: 1px solid black; */
@@ -243,67 +244,17 @@
   let navbar_div = document.getElementById("navbar");
   navbar_div.innerHTML = navbar();
 
-  let data = [
-    {
-      name: "Raw Papaya",
-      price: "200",
-      img: "https://ik.imagekit.io/dunzo/tr:w-144,h-144,cm-pad_resize/TnJrdHNod0kyTGxKV001MVJ6dUtxdz09-product_image.jpg",
-      qty: 1,
-    },
-    {
-      name: "Pineapple",
-      price: "134",
-      img: "https://ik.imagekit.io/dunzo/tr:w-144,h-144,cm-pad_resize/ZFByRlJ1b1RnMXlORitsUkJkSWk3UT09-product_image.jpg",
-      qty: 1,
-    },
-    {
-      name: "Papaya",
-      price: "99",
-      img: "https://ik.imagekit.io/dunzo/tr:w-144,h-144,cm-pad_resize/ejRHTEtlMmc3dE5QMzZJQTFISkhtZz09-product_image.jpg",
-      qty: 1,
-    },
-    {
-      name: "Pomegranate Arils",
-      price: "90",
-      img: "https://ik.imagekit.io/dunzo/tr:w-144,h-144,cm-pad_resize/ZHFwZ3U5a0ZhWDllUG4wcFJVTklBdz09-product_image.jpg",
-      qty: 1,
-    },
-    {
-      name: "Peeled Pomegranate",
-      price: "47",
-      img: "https://ik.imagekit.io/dunzo/tr:w-144,h-144,cm-pad_resize/1615633258974_product_5d40054847ddec28ec55ba98_1.jpg",
-      qty: 1,
-    },
-    {
-      name: "Papaya - Nati",
-      price: "49",
-      img: "https://ik.imagekit.io/dunzo/tr:w-144,h-144,cm-pad_resize/N25kWU81MW1zeDAxanA4RytrdklnQT09-product_image.jpg",
-      qty: 1,
-    },
-    {
-      name: "Papaya - Nati",
-      price: "49",
-      img: "https://ik.imagekit.io/dunzo/tr:w-144,h-144,cm-pad_resize/N25kWU81MW1zeDAxanA4RytrdklnQT09-product_image.jpg",
-    },
-    {
-      name: "Papaya - Nati",
-      price: "49",
-      img: "https://ik.imagekit.io/dunzo/tr:w-144,h-144,cm-pad_resize/N25kWU81MW1zeDAxanA4RytrdklnQT09-product_image.jpg",
-      qty: 1,
-    },
-    {
-      name: "Papaya - Nati",
-      price: "49",
-      img: "https://ik.imagekit.io/dunzo/tr:w-144,h-144,cm-pad_resize/N25kWU81MW1zeDAxanA4RytrdklnQT09-product_image.jpg",
-      qty: 1,
-    },
-    {
-      name: "Papaya - Nati",
-      price: "49",
-      img: "https://ik.imagekit.io/dunzo/tr:w-144,h-144,cm-pad_resize/N25kWU81MW1zeDAxanA4RytrdklnQT09-product_image.jpg",
-      qty: 1,
-    },
-  ];
+  function geter(){
+    console.log("hello world");
+   let  config={
+        method: 'get',
+        url: 'http://localhost:2345/item'
+    }
+    const pr =axios(config); 
+    pr.then((res) => {
+        const data =res.data
+        console.log(res.data);
+    
 
   // 1. Run a foreEach loop on data and console log individual product names
   // 2. append this data  on DOM
@@ -311,17 +262,16 @@
 
   let parent = document.getElementById("products");
 
-  function showProducts(d) {
     parent.innerHTML = null;
 
-    d.forEach(function (product) {
+    data.forEach(function (product) {
       let div = document.createElement("div");
 
       div.classList.add("box");
 
       let img = document.createElement("img");
 
-      img.src = product.img;
+      img.src = product.image;
 
       img.classList.add("boximg");
 
@@ -351,9 +301,10 @@
 
       parent.append(div);
     });
-  }
+  })
+}
 
-  showProducts(data);
+ geter();
 
   if (localStorage.getItem("dunzoCart") === null) {
     localStorage.setItem("dunzoCart", JSON.stringify([]));
