@@ -30,7 +30,7 @@ router.get("", async (req,res) =>{
     try{
 
         const page = +req.query.page || 1;
-        const size = +req.query.size || 2;
+        const size = +req.query.size || 10;
 
         // page = 1 skip(0) limit(2)
         const skip  = (page - 1) * size;
