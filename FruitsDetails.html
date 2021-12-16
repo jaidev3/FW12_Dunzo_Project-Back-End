@@ -19,6 +19,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <style>
       * {
         /* border: 1px solid black; */
@@ -78,11 +79,11 @@
         border-radius: 5px;
         height: 150px;
       }
-      .boximg{
-          height: 60%;
-          width: 100px;
-          padding: 15px;
-          margin-top: 30px;
+      .boximg {
+        height: 60%;
+        width: 100px;
+        padding: 15px;
+        margin-top: 30px;
       }
       .box:hover {
         transform: scale(1.01);
@@ -108,15 +109,15 @@
         background-color: gray;
       }
       #diff_cat {
-       width: 12%;
+        width: 12%;
         border-right: 1px solid rgb(197, 191, 191);
         padding-right: 5px;
       }
       #diff_cat p {
         margin-top: 12px;
-        white-space: nowrap; 
+        white-space: nowrap;
         overflow: hidden;
-        text-overflow: ellipsis; 
+        text-overflow: ellipsis;
       }
       #products {
         margin-top: 10px;
@@ -170,10 +171,10 @@
         height: 140px;
         background-color: #e4f9f1;
       }
-      #apple_icon img{
-          width: 100%;
-          height: 100%;
-          border-radius: 10px;
+      #apple_icon img {
+        width: 100%;
+        height: 100%;
+        border-radius: 10px;
       }
 
       .box1 {
@@ -189,8 +190,8 @@
       #search {
         margin-top: 10px;
       }
-      #cartL{
-          margin-left: 90px;
+      #cartL {
+        margin-left: 90px;
       }
     </style>
   </head>
@@ -199,17 +200,24 @@
 
     <div id="location_detail">
       <div class="width_content">
-        <p class="pt-10 ml-5 mb-5 font-sans text-xs font-semibold tracking-wider">
+        <p
+          class="pt-10 ml-5 mb-5 font-sans text-xs font-semibold tracking-wider"
+        >
           <span class="text-green-500">Home </span> -
-          <span class="text-green-500">Mumbai</span> - Fruits & Vegetables - Krishna Fruits & Vegetables
+          <span class="text-green-500">Mumbai</span> - Fruits & Vegetables -
+          Krishna Fruits & Vegetables
         </p>
 
         <div id="fruit_icon" class="ml-6">
           <div id="apple_icon">
-           <img src="https://ik.imagekit.io/dunzo/dunzo-catalog-prod/tr:w-220,h-220,cm-pad_resize_store_thumbnail/stores/Z2tyRTQzenRKeW4xYW04ekxoV3BSZz09-1577703419991-store_image.jpg" alt="">
+            <img
+              src="https://ik.imagekit.io/dunzo/dunzo-catalog-prod/tr:w-220,h-220,cm-pad_resize_store_thumbnail/stores/Z2tyRTQzenRKeW4xYW04ekxoV3BSZz09-1577703419991-store_image.jpg"
+              alt=""
+            />
           </div>
           <div class="ml-3">
-            <h1 class= "font-semibold font-sans text-3xl mt-4">Krishna Fruits & Vegetables
+            <h1 class="font-semibold font-sans text-3xl mt-4">
+              Krishna Fruits & Vegetables
             </h1>
             <p>Marol Military Road</p>
           </div>
@@ -230,7 +238,6 @@
         <div id="cart">
           <div id="cartUpper">
             <h1>Your Cart <span id="cartL"></span></h1>
-            
           </div>
           <div id="addedToCrt"></div>
         </div>
@@ -243,187 +250,156 @@
   let navbar_div = document.getElementById("navbar");
   navbar_div.innerHTML = navbar();
 
-  let data = [
-    {
-      name: "Raw Papaya",
-      price: "200",
-      img: "https://ik.imagekit.io/dunzo/tr:w-144,h-144,cm-pad_resize/TnJrdHNod0kyTGxKV001MVJ6dUtxdz09-product_image.jpg",
-      qty: 1,
-    },
-    {
-      name: "Pineapple",
-      price: "134",
-      img: "https://ik.imagekit.io/dunzo/tr:w-144,h-144,cm-pad_resize/ZFByRlJ1b1RnMXlORitsUkJkSWk3UT09-product_image.jpg",
-      qty: 1,
-    },
-    {
-      name: "Papaya",
-      price: "99",
-      img: "https://ik.imagekit.io/dunzo/tr:w-144,h-144,cm-pad_resize/ejRHTEtlMmc3dE5QMzZJQTFISkhtZz09-product_image.jpg",
-      qty: 1,
-    },
-    {
-      name: "Pomegranate Arils",
-      price: "90",
-      img: "https://ik.imagekit.io/dunzo/tr:w-144,h-144,cm-pad_resize/ZHFwZ3U5a0ZhWDllUG4wcFJVTklBdz09-product_image.jpg",
-      qty: 1,
-    },
-    {
-      name: "Peeled Pomegranate",
-      price: "47",
-      img: "https://ik.imagekit.io/dunzo/tr:w-144,h-144,cm-pad_resize/1615633258974_product_5d40054847ddec28ec55ba98_1.jpg",
-      qty: 1,
-    },
-    {
-      name: "Papaya - Nati",
-      price: "49",
-      img: "https://ik.imagekit.io/dunzo/tr:w-144,h-144,cm-pad_resize/N25kWU81MW1zeDAxanA4RytrdklnQT09-product_image.jpg",
-      qty: 1,
-    },
-    {
-      name: "Papaya - Nati",
-      price: "49",
-      img: "https://ik.imagekit.io/dunzo/tr:w-144,h-144,cm-pad_resize/N25kWU81MW1zeDAxanA4RytrdklnQT09-product_image.jpg",
-    },
-    {
-      name: "Papaya - Nati",
-      price: "49",
-      img: "https://ik.imagekit.io/dunzo/tr:w-144,h-144,cm-pad_resize/N25kWU81MW1zeDAxanA4RytrdklnQT09-product_image.jpg",
-      qty: 1,
-    },
-    {
-      name: "Papaya - Nati",
-      price: "49",
-      img: "https://ik.imagekit.io/dunzo/tr:w-144,h-144,cm-pad_resize/N25kWU81MW1zeDAxanA4RytrdklnQT09-product_image.jpg",
-      qty: 1,
-    },
-    {
-      name: "Papaya - Nati",
-      price: "49",
-      img: "https://ik.imagekit.io/dunzo/tr:w-144,h-144,cm-pad_resize/N25kWU81MW1zeDAxanA4RytrdklnQT09-product_image.jpg",
-      qty: 1,
-    },
-  ];
+  function geter() {
+    console.log("hello world");
+    let config = {
+      method: "get",
+      url: "http://localhost:2345/item",
+    };
+    const pr = axios(config);
+    pr.then((res) => {
+      const data = res.data;
+      console.log(res.data);
 
-  // 1. Run a foreEach loop on data and console log individual product names
-  // 2. append this data  on DOM
-  // 3. createElement
+      // 1. Run a foreEach loop on data and console log individual product names
+      // 2. append this data  on DOM
+      // 3. createElement
 
-  let parent = document.getElementById("products");
+      let parent = document.getElementById("products");
 
-  function showProducts(d) {
-    parent.innerHTML = null;
+      parent.innerHTML = null;
 
-    d.forEach(function (product) {
-      let div = document.createElement("div");
+      data.forEach(function (product) {
+        let div = document.createElement("div");
 
-      div.classList.add("box");
+        div.classList.add("box");
 
-      let img = document.createElement("img");
+        let img = document.createElement("img");
 
-      img.src = product.img;
+        img.src = product.image;
 
-      img.classList.add("boximg");
+        img.classList.add("boximg");
 
-      let product_price = document.createElement("h5");
+        let product_price = document.createElement("h5");
 
-      product_price.textContent = "₹ " + product.price;
+        product_price.textContent = "₹ " + product.price1;
 
-      let product_name = document.createElement("h5");
+        let product_name = document.createElement("h5");
 
-      product_name.textContent = product.name;
+        product_name.textContent = product.item;
 
-      let addtocart_btn = document.createElement("button");
+        let addtocart_btn = document.createElement("button");
 
-      addtocart_btn.classList.add("btn");
+        addtocart_btn.classList.add("btn");
 
-      addtocart_btn.innerText = "+ ADD";
+        addtocart_btn.innerText = "+ ADD";
 
-      addtocart_btn.onclick = function () {
-        addtoCart(product);
-      };
+        addtocart_btn.onclick = function () {
+          addtoCart(product);
+        };
 
-      var divProd = document.createElement("div");
-      divProd.classList.add("details");
-      divProd.append(product_name, product_price);
+        var divProd = document.createElement("div");
+        divProd.classList.add("details");
+        divProd.append(product_name, product_price);
 
-      div.append(img, divProd, addtocart_btn); // HTML element
+        div.append(img, divProd, addtocart_btn); // HTML element
 
-      parent.append(div);
+        parent.append(div);
+      });
     });
   }
 
-  showProducts(data);
+  geter();
 
   if (localStorage.getItem("dunzoCart") === null) {
     localStorage.setItem("dunzoCart", JSON.stringify([]));
   }
 
   function addtoCart(p) {
-    let products_cart = JSON.parse(localStorage.getItem("dunzoCart"));
+    axios.post("http://localhost:2345/cart", p);
+    console.log(p);
+    window.location.reload(true);
 
-    // products_cart.push(p);
-    let present = false;
+    // console.log(products_cart);
+    //   let products_cart = JSON.parse(localStorage.getItem("dunzoCart"));
 
-    products_cart.forEach((prod) => {
-      if (prod.name === p.name) {
-        prod.qty++;
-        localStorage.setItem("dunzoCart", JSON.stringify(products_cart));
-        present = true;
-        return;
-      }
-    });
+    //   products_cart.push(p);
+    // console.log(products_cart);
+    // let present = false;
 
-    if (!present) {
-      products_cart.push(p);
-      localStorage.setItem("dunzoCart", JSON.stringify(products_cart));
-    }
+    // products_cart.forEach((prod) => {
+    //   if (prod.name === p.name) {
+    //     prod.qty++;
+    //     localStorage.setItem("dunzoCart", JSON.stringify(products_cart));
+    //     present = true;
+    //     return;
+    //   }
+    // });
+
+    // if (!present) {
+    //   products_cart.push(p);
+    //   localStorage.setItem("dunzoCart", JSON.stringify(products_cart));
+    // }
     // localStorage.setItem("dunzoCart",JSON.stringify(products_cart));
 
-    console.log("products_cart:", products_cart);
+    // console.log("products_cart:", products_cart);
 
-    window.location.reload(true);
+    // window.location.reload(true);
   }
 
   let cartParent = document.getElementById("addedToCrt");
 
-  let cart = JSON.parse(localStorage.getItem("dunzoCart"));
-  console.log("dunzoCart:", cart.length);
+  // let cart = JSON.parse(localStorage.getItem("dunzoCart"));
+  // console.log("dunzoCart:", cart.length);
 
   document.getElementById("cartL").textContent = "(" + cart.length + " item)";
 
-  function showCartProducts() {
-    cart.forEach(function (product) {
-      let div = document.createElement("div");
+  /////////////// function showCartProducts() {////////////////////////
 
-     
-div.style.display="grid"
-div.style.gridTemplateColumns="50% 50%"
-      let product_price = document.createElement("p");
+  function geter1() {
+    console.log("hello world");
+    let config = {
+      method: "get",
+      url: "http://localhost:2345/cart",
+    };
+    const pr = axios(config);
+    pr.then((res) => {
+      const data = res.data;
+      console.log(res.data);
 
-      product_price.textContent = "₹ " + +product.price * product.qty;
+      data.forEach(function (product) {
+        let div = document.createElement("div");
 
-      let product_name = document.createElement("p");
+        div.style.display = "grid";
+        div.style.gridTemplateColumns = "50% 50%";
+        let product_price = document.createElement("p");
 
-      product_name.textContent = product.name;
+        product_price.textContent = "₹ " + product.price1;
+        //  * product.qty);
 
-      div.append(product_name, product_price); // HTML element
+        let product_name = document.createElement("p");
 
-      cartParent.append(div);
+        product_name.textContent = product.item;
 
+        div.append(product_name, product_price); // HTML element
+
+        cartParent.append(div);
+      });
     });
   }
-  showCartProducts();
 
+  // }
+  // showCartProducts();
+  geter1();
   // Pop-up
-  
+
   const open_modal = document.getElementById("open_modal");
   const modal_container = document.getElementById("modal-container");
   const close_modal = document.getElementById("close-modal");
 
-  let dunzoUser = JSON.parse(localStorage.getItem('dunzoUser'));
+  let dunzoUser = JSON.parse(localStorage.getItem("dunzoUser"));
 
-  if(dunzoUser.length){
+  if (dunzoUser.length) {
     open_modal.innerText = dunzoUser[0].name;
   }
 
