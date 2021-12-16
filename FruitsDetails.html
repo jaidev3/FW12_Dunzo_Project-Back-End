@@ -59,16 +59,28 @@
         margin: auto 0;
         margin-right: 10px;
       }
+      #inputContainer {
+        width: 500px;
+        margin: 10px auto;
+      }
+      #inputContainer i {
+        position: absolute;
+        padding-top: 6px;
+        padding-left: 8px;
+        font-size: 30px;
+      }
       #searchIn {
         font-family: "Gilroy-Regular", sans-serif;
         border: 1px solid gainsboro;
         border-radius: 10px;
-        font-size: 14px;
+        font-size: 20px;
         outline: none;
-        padding-left: 10px;
+        padding-left: 40px;
+        width: 100%;
+        height: 40px;
       }
       #searchIn:focus {
-        border: 2px solid #00d290;
+        border: 1px solid #00d290;
       }
     </style>
   </head>
@@ -101,9 +113,11 @@
 
     <hr />
 
-    <div>
+    <div id="inputContainer">
+      <i class="material-icons">search</i>
       <input type="search" placeholder="Search" id="searchIn" />
     </div>
+
     <hr />
 
     <div class="width_content">
