@@ -5,6 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
       rel="icon"
       href="https://softstribe.com/app/uploads/icons/com-dunzo-user-icon.jpg"
       type="image/icon type"
@@ -15,11 +19,12 @@
     <style>
       header {
         position: relative;
-        border: 1px solid red;
+        /* border: 1px solid red; */
       }
       #location_detail {
-        border: 1px solid red;
+        /* border: 1px solid red; */
         background-color: #f7fdfa;
+        padding: 20px 0px;
       }
       #ldt {
         font-family: "Gilroy-Regular", sans-serif;
@@ -30,6 +35,7 @@
       #ldt p:nth-child(odd) {
         color: #00d290;
         font-weight: bold;
+        cursor: pointer;
       }
       #ldt p:nth-child(even) {
         color: gray;
@@ -37,6 +43,21 @@
       }
       #ldm {
         display: flex;
+        gap: 40px;
+      }
+      #ldm img {
+        border-radius: 10px;
+        width: 150px;
+      }
+      #ldm div:nth-child(2) div {
+        display: flex;
+        color: gray;
+      }
+      #ldm div:nth-child(2) div i {
+        /* border: 1px solid red; */
+        color: #00d290;
+        margin: auto 0;
+        margin-right: 10px;
       }
       #searchIn {
         font-family: "Gilroy-Regular", sans-serif;
@@ -70,7 +91,10 @@
         </div>
         <div>
           <h1>SN Traders Vegetables</h1>
-          <p>39 mins</p>
+          <div>
+            <i class="material-icons">access_time </i>
+            <p>39 mins</p>
+          </div>
         </div>
       </div>
     </div>
