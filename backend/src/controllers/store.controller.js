@@ -17,8 +17,18 @@ router.post("", async (req,res) =>{
 
 router.get("", async (req,res) =>{
     try{
-        const user = await User.find().lean().exec();
-        return res.status(201).send(user)
+
+        const page = +req.query.page || 1;
+        const size = +req.query.size || 2;
+
+        // page = 1 skip(0) limit(2)
+        const skip  = (page - 1) * size;
+
+        const user = await User.find().skip(skip).limit(size).lean().exec();
+        const totalPages = Math.ceil(await Product.find().countDocuments() / size);        
+        // return res.status(201).send(user)
+        return res.json({User,totalPages});
+
     }
     catch (e) {
         return res.status(500).json({ message: e.message, status: "Failed" })
@@ -27,4 +37,6 @@ router.get("", async (req,res) =>{
 
 
 module.exports = router;
+
+
 
