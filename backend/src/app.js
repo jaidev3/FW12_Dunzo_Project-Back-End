@@ -10,7 +10,8 @@ const cartController = require("./controllers/cart.controller");
 const app = express();
 
 ////////configs/////////////////
-dotenv.config();
+require("dotenv").config()
+
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(cors());
