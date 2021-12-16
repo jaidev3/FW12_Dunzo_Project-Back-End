@@ -11,186 +11,23 @@
     />
     <title>Order From Krishna Fruits And Vegetables</title>
     <link rel="stylesheet" href="./CSS/style.css" />
-    <link
-      href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <style>
-      * {
-        /* border: 1px solid black; */
-        margin: 0px;
-        padding: 0px;
-      }
-      #bidD {
-        margin-top: 0px;
-        background-color: #e8f5e9;
-        border: 1px solid black;
-        width: 100%;
-      }
-      #Market_name {
-        display: flex;
-        /* position: sticky;  */
-        /* border: 1px solid black; */
-        width: 100%;
-        background-color: rgb(236, 227, 227);
-      }
-      #Market_name img {
-        margin-left: 150px;
-        height: 150px;
-        width: 150px;
-        border-radius: 5px;
-        /* position: fixed; */
-      }
-      #Market_name div {
-        margin-top: 50px;
-        margin-left: 10px;
-      }
-      #search {
-        margin-top: 10px;
-        /* text-align: center; */
-        border: 1px solid rgb(192, 185, 185);
-      }
-      input {
-        height: 38px;
-        width: 31%;
-        border-radius: 8px;
-        margin: 5px 0 5px 400px;
-        border: 1px solid rgb(185, 181, 181);
-      }
-      #btn2 {
-        width: 35px;
-        height: 35px;
-        margin-left: 0px;
-      }
-      img {
-        width: 20%;
-        height: 60px;
-        /* margin-top: 15px; */
-        /* float: left; */
-      }
-      .box {
-        display: flex;
-        border-radius: 5px;
-        height: 150px;
-      }
-      .boximg {
-        height: 60%;
-        width: 100px;
-        padding: 15px;
-        margin-top: 30px;
-      }
-      .box:hover {
-        transform: scale(1.01);
-        box-shadow: 2px 2px 2px 2px #c9c3c3;
-      }
-      .details {
-        width: 100px;
-        margin-left: 8px;
-        margin-top: 11px;
-      }
-      .btn {
-        width: 80px;
-        height: 35px;
-        margin-top: 35px;
-        margin-left: 240px;
-        border: solid 1px rgb(228, 228, 228);
-        border-radius: 15px;
-      }
-      .btn:hover {
-        cursor: pointer;
-      }
-      .btn:active {
-        background-color: gray;
-      }
-      #diff_cat {
-        width: 12%;
-        border-right: 1px solid rgb(197, 191, 191);
-        padding-right: 5px;
-      }
-      #diff_cat p {
-        margin-top: 12px;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-      }
-      #products {
-        margin-top: 10px;
-        margin-left: 15px;
-        width: 650px;
-      }
-      #products:hover {
-        cursor: pointer;
-      }
-      #lowerDiv {
-        display: flex;
-      }
-      #cart {
-        margin-left: 15px;
-        border-left: 1px solid rgb(189, 184, 184);
-        padding-left: 10px;
-        display: sticky;
-        width: 350px;
-      }
-      #cartUpper {
-        display: flex;
-      }
-      #cartUpper > div {
-        margin-top: 13px;
-        margin-left: 30px;
-      }
-
-      body {
-        font-family: sans-serif;
+      header {
+        position: relative;
+        border: 1px solid red;
       }
       #location_detail {
-        width: 100%;
-        height: 250px;
+        border: 1px solid red;
         background-color: #f7fdfa;
-        margin-top: 60px;
       }
-      .width_content {
-        width: 70%;
-        min-height: 200px;
-        /* background-color: rgb(102, 133, 133); */
-        margin: auto;
-        margin-top: 5px;
+      #ldt {
+        font-family: "Gilroy-Regular", sans-serif;
+        display: flex;
+        gap: 10px;
       }
-      #fruit_icon {
-        display: grid;
-        grid-template-columns: 14% 70%;
-        padding: 0px;
-      }
-      #apple_icon {
-        width: 140px;
-        height: 140px;
-        background-color: #e4f9f1;
-      }
-      #apple_icon img {
-        width: 100%;
-        height: 100%;
-        border-radius: 10px;
-      }
-
-      .box1 {
-        display: grid;
-        grid-template-columns: 20% 65% 10%;
-        grid-column-gap: 2%;
-        margin: 5px;
-      }
-      .box1:hover {
-        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-      }
-
-      #search {
-        margin-top: 10px;
-      }
-      #cartL {
-        margin-left: 90px;
+      #ldm {
+        display: flex;
       }
       #searchIn {
         font-family: "Gilroy-Regular", sans-serif;
@@ -199,7 +36,6 @@
         font-size: 14px;
         outline: none;
         padding-left: 10px;
-        /* display: none; */
       }
       #searchIn:focus {
         border: 2px solid #00d290;
@@ -208,33 +44,30 @@
   </head>
   <body>
     <header id="navbar"></header>
-
     <div id="location_detail">
-      <div>
-        <p>
-          <span class="text-green-500">Home </span> -
-          <span class="text-green-500">Mumbai</span> - Fruits & Vegetables -
-          Krishna Fruits & Vegetables
-        </p>
-
-        <div id="fruit_icon">
-          <div id="apple_icon">
-            <img
-              src="https://ik.imagekit.io/dunzo/dunzo-catalog-prod/tr:w-220,h-220,cm-pad_resize_store_thumbnail/stores/Z2tyRTQzenRKeW4xYW04ekxoV3BSZz09-1577703419991-store_image.jpg"
-              alt=""
-            />
-          </div>
-          <div class="ml-3">
-            <h1 class="font-semibold font-sans text-3xl mt-4">
-              Krishna Fruits & Vegetables
-            </h1>
-            <p>Marol Military Road</p>
-          </div>
+      <div id="ldt">
+        <p>Home</p>
+        <p>→</p>
+        <p>Bangalore</p>
+        <p>→</p>
+        <p>SN Traders Vegetables</p>
+      </div>
+      <div id="ldm">
+        <div>
+          <img
+            src="https://ik.imagekit.io/dunzo/dunzo-catalog-prod/tr:w-220,h-220,cm-pad_resize_store_thumbnail/stores/Z2tyRTQzenRKeW4xYW04ekxoV3BSZz09-1577703419991-store_image.jpg"
+            alt=""
+          />
+        </div>
+        <div>
+          <h1>SN Traders Vegetables</h1>
+          <p>39 mins</p>
         </div>
       </div>
     </div>
 
     <hr />
+
     <div>
       <input type="search" placeholder="Search" id="searchIn" />
     </div>
