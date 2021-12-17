@@ -19,7 +19,7 @@ header {
   box-sizing: border-box;
   display: flex;
   height: 72px;
-  /* position: fixed; */
+  position: fixed;
   left: 0px;
   width: 100%;
   max-width: 100vw;
