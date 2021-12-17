@@ -43,7 +43,7 @@ A cooperative Project worked by a group of 6 executed in 6 days.with the use of 
   <li>Sign in</li>
   <li>Payment Page</li>
   <li>Dashboard Page</li>
-  <li>Greaating Page</li>
+  <li>Greating Page</li>
 </ul>
 
 ## Functionalities Added
