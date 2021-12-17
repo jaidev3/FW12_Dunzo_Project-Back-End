@@ -19,11 +19,13 @@
     <style>
       header {
         position: relative;
-        /* border: 1px solid red; */
+      }
+      #ldHolder {
+        background-color: #f7fdfa;
       }
       #location_detail {
-        /* border: 1px solid red; */
-        background-color: #f7fdfa;
+        width: 1100px;
+        margin: 0 auto;
         padding: 20px 0px;
       }
       #ldt {
@@ -88,6 +90,9 @@
         width: 1100px;
         margin: 0 auto;
       }
+      #diff_cat {
+        padding-right: 15px;
+      }
       #diff_cat p {
         padding-top: 20px;
         /* border: 1px solid red; */
@@ -120,30 +125,35 @@
       #cart img {
         width: 250px;
       }
+      hr {
+        border-top: 0px;
+      }
     </style>
   </head>
   <body>
     <header id="navbar"></header>
-    <div id="location_detail">
-      <div id="ldt">
-        <p>Home</p>
-        <p>→</p>
-        <p>Bangalore</p>
-        <p>→</p>
-        <p>SN Traders Vegetables</p>
-      </div>
-      <div id="ldm">
-        <div>
-          <img
-            src="https://ik.imagekit.io/dunzo/dunzo-catalog-prod/tr:w-220,h-220,cm-pad_resize_store_thumbnail/stores/Z2tyRTQzenRKeW4xYW04ekxoV3BSZz09-1577703419991-store_image.jpg"
-            alt=""
-          />
+    <div id="ldHolder">
+      <div id="location_detail">
+        <div id="ldt">
+          <p>Home</p>
+          <p>→</p>
+          <p>Bangalore</p>
+          <p>→</p>
+          <p>SN Traders Vegetables</p>
         </div>
-        <div>
-          <h1>SN Traders Vegetables</h1>
+        <div id="ldm">
           <div>
-            <i class="material-icons">access_time </i>
-            <p>39 mins</p>
+            <img
+              src="https://ik.imagekit.io/dunzo/dunzo-catalog-prod/tr:w-220,h-220,cm-pad_resize_store_thumbnail/stores/Z2tyRTQzenRKeW4xYW04ekxoV3BSZz09-1577703419991-store_image.jpg"
+              alt=""
+            />
+          </div>
+          <div>
+            <h1>SN Traders Vegetables</h1>
+            <div>
+              <i class="material-icons">access_time </i>
+              <p>39 mins</p>
+            </div>
           </div>
         </div>
       </div>
