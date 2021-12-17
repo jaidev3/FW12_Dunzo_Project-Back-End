@@ -230,11 +230,11 @@
 
         let product_price = document.createElement("h5");
 
-        product_price.textContent = "₹ " + product.price;
+        product_price.textContent = "₹ " + product.price1;
 
         let product_name = document.createElement("h5");
 
-        product_name.textContent = product.name;
+        product_name.textContent = product.item;
 
         let addtocart_btn = document.createElement("button");
 
@@ -264,60 +264,85 @@
   }
 
   function addtoCart(p) {
-    let products_cart = JSON.parse(localStorage.getItem("dunzoCart"));
+    axios.post("http://localhost:2345/cart", p);
+    console.log(p);
+    window.location.reload(true);
 
-    // products_cart.push(p);
-    let present = false;
+    // console.log(products_cart);
+    //   let products_cart = JSON.parse(localStorage.getItem("dunzoCart"));
 
-    products_cart.forEach((prod) => {
-      if (prod.name === p.name) {
-        prod.qty++;
-        localStorage.setItem("dunzoCart", JSON.stringify(products_cart));
-        present = true;
-        return;
-      }
-    });
+    //   products_cart.push(p);
+    // console.log(products_cart);
+    // let present = false;
 
-    if (!present) {
-      products_cart.push(p);
-      localStorage.setItem("dunzoCart", JSON.stringify(products_cart));
-    }
+    // products_cart.forEach((prod) => {
+    //   if (prod.name === p.name) {
+    //     prod.qty++;
+    //     localStorage.setItem("dunzoCart", JSON.stringify(products_cart));
+    //     present = true;
+    //     return;
+    //   }
+    // });
+
+    // if (!present) {
+    //   products_cart.push(p);
+    //   localStorage.setItem("dunzoCart", JSON.stringify(products_cart));
+    // }
     // localStorage.setItem("dunzoCart",JSON.stringify(products_cart));
 
-    console.log("products_cart:", products_cart);
+    // console.log("products_cart:", products_cart);
 
-    window.location.reload(true);
+    // window.location.reload(true);
   }
 
   let cartParent = document.getElementById("addedToCrt");
 
-  let cart = JSON.parse(localStorage.getItem("dunzoCart"));
-  console.log("dunzoCart:", cart.length);
+  // let cart = JSON.parse(localStorage.getItem("dunzoCart"));
+  // console.log("dunzoCart:", cart.length);
 
   document.getElementById("cartL").textContent =
     `( ` + cart.length + ` Item's )`;
 
-  function showCartProducts() {
-    cart.forEach(function (product) {
-      let div = document.createElement("div");
+  /////////////// function showCartProducts() {////////////////////////
 
-      div.style.display = "grid";
-      div.style.gridTemplateColumns = "50% 50%";
-      let product_price = document.createElement("p");
+  function geter1() {
+    console.log("hello world");
+    let config = {
+      method: "get",
+      url: "http://localhost:2345/cart",
+    };
+    const pr = axios(config);
+    pr.then((res) => {
+      const data = res.data;
+      console.log(res.data);
 
-      product_price.textContent = "₹ " + +product.price * product.qty;
 
-      let product_name = document.createElement("p");
+      data.forEach(function (product) {
+        let div = document.createElement("div");
 
-      product_name.textContent = product.name;
+        div.style.display = "grid";
+        div.style.gridTemplateColumns = "50% 50%";
+        let product_price = document.createElement("p");
 
-      div.append(product_name, product_price); // HTML element
+        product_price.textContent = "₹ " + product.price1;
+        //  * product.qty);
 
-      cartParent.append(div);
+        let product_name = document.createElement("p");
+
+        product_name.textContent = product.item;
+
+
+        div.append(product_name, product_price); // HTML element
+
+        cartParent.append(div);
+      });
+
     });
   }
-  showCartProducts();
 
+  // }
+  // showCartProducts();
+  geter1();
   // Pop-up
 
   const open_modal = document.getElementById("open_modal");
