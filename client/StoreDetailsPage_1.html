@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      href="https://softstribe.com/app/uploads/icons/com-dunzo-user-icon.jpg"
+      type="image/icon type"
+    />
+    <link
+      href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./CSS/style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>Order From Fruits And Vegetables</title>
+  </head>
+  <style>
+    body {
+      font-family: sans-serif;
+    }
+    #location_detail {
+      width: 100%;
+      height: 230px;
+      background-color: #f7fdfa;
+      margin-top: 60px;
+    }
+    .width_content {
+      width: 70%;
+      min-height: 200px;
+      /* background-color: rgb(102, 133, 133); */
+      margin: auto;
+      margin-top: 5px;
+    }
+    #store_details {
+      display: grid;
+      grid-template-columns: 47% 47%;
+      column-gap: 6%;
+      padding: 10px;
+      box-sizing: border-box;
+    }
+    img {
+      width: 100%;
+      height: 100%;
+      border-radius: 10px;
+    }
+    #image {
+      height: 100%;
+      width: 100%;
+      border-radius: 10px;
+      padding: 10px;
+      box-sizing: border-box;
+    }
+    p {
+      color: rgb(160, 160, 160);
+    }
+    .specialmargin {
+      margin-left: 30%;
+    }
+    #fruit_icon {
+      display: grid;
+      grid-template-columns: 10% 70%;
+      padding: 10px;
+    }
+    #apple_icon {
+      border-radius: 15px;
+      width: 90px;
+      height: 90px;
+      background-color: #e4f9f1;
+    }
+    #apple_icon > div {
+      width: 60%;
+      height: 60%;
+      margin-top: 20px;
+      margin-left: 20px;
+    }
+  </style>
+  <body>
+    <div>
+      <header id="navbar"></header>
+      <div id="location_detail">
+        <div class="width_content">
+          <p class="pt-10 ml-5 mb-5 font-sans text-xs font-semibold tracking-wider">
+            <span class="text-green-500 ">Home </span> -
+            <span class="text-green-500 ">Mumbai</span> - Fruits & Vegetables
+          </p>
+
+          <div id="fruit_icon" class="ml-3">
+            <div id="apple_icon">
+              <div >
+                <img
+                  src="https://ik.imagekit.io/dunzo/icons/website/bluegreen/category/fruitsVegetables.png?tr=w-88,h-88,cm-pad_resize"
+                  alt=""
+                />
+              </div>
+            </div>
+            <div class="ml-3">
+              <h1 class="font-semibold font-sans text-3xl mt-4">Fruits & Vegetables in Mumbai</h1>
+              <p>45 Stores</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="stores">
+        <div class="width_content" id="store_details"></div>
+      </div>
+
+      <div id="page_nav">
+        <div class="width_content">
+          <div class="flex items-center space-x-1 specialmargin">
+            <a
+              href="StoreDetailsPage_1.html"
+              class="
+                flex
+                items-center
+                px-4
+                py-2
+                text-gray-500
+                bg-gray-300
+                rounded-md
+              "
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-6 h-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M11 17l-5-5m0 0l5-5m-5 5h12"
+                />
+              </svg>
+            </a>
+
+            <a
+              href="StoreDetailsPage_1.html"
+              class="
+                px-4
+                py-2
+                text-gray-700
+                bg-gray-200
+                rounded-md
+                hover:bg-blue-400 hover:text-white
+              "
+            >
+              1
+            </a>
+            <a
+              href="StoreDetailsPage_2.html"
+              class="
+                px-4
+                py-2
+                text-gray-700
+                bg-gray-200
+                rounded-md
+                hover:bg-blue-400 hover:text-white
+              "
+            >
+              2
+            </a>
+            <a
+              href="StoreDetailsPage_3.html"
+              class="
+                px-4
+                py-2
+                text-gray-700
+                bg-gray-200
+                rounded-md
+                hover:bg-blue-400 hover:text-white
+              "
+            >
+              3
+            </a>
+            <a
+              href="StoreDetailsPage_3.html"
+              class="
+                px-4
+                py-2
+                text-gray-500
+                bg-gray-300
+                rounded-md
+                hover:bg-blue-400 hover:text-white
+              "
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-6 h-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M13 7l5 5m0 0l-5 5m5-5H6"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <footer id="footer" class="bottomfooter"></footer>
+    </div>
+  </body>
+</html>
+
+
+<script type="module">
+  import navbar from "./components/navbar.js";
+  import footer from "./components/footer.js";
+  let navbar_div = document.getElementById("navbar");
+  let footer_div = document.getElementById("footer");
+  navbar_div.innerHTML = navbar();
+  footer_div.innerHTML = footer();
+
+
+  var store_details = document.getElementById("store_details");
+
+
+  var data;
+  function geter(){
+    console.log("hello world");
+   let  config={
+        method: 'get',
+        url: 'https://dunzo-masai.herokuapp.com/store'
+    }
+    const pr =axios(config); 
+    pr.then((res) => {
+        const data =res.data.user
+        console.log(res.data);
+    
+    data.forEach(function (product) {
+      let div1 = document.createElement("div");
+
+      let div_image = document.createElement("div");
+      let div_content = document.createElement("div");
+
+      let image1 = document.createElement("img");
+      let location1 = document.createElement("p");
+      let distance1 = document.createElement("p");
+      let title1 = document.createElement("h1");
+
+      //   div1.style.display = "block";
+      //   div1.style.maxHeight = "350px";
+      //   div1.style.marginBottom = "80px";
+      div1.onclick = function () {
+        window.location.href = "FruitsDetails.html";
+      };
+      /////style////////////////////////////////////////////////////////////////
+      image1.style.borderRadius = "15px";
+      div_image.style.padding="5px"
+      div_image.style.borderRadius = "15px"
+      div1.style.display = "grid";
+      div1.style.padding = "10px";
+      div1.style.gridTemplateColumns = "30% 70%";
+      div1.style.gridGap = "15px";
+      div1.style.margin = "10px";
+
+      div1.addEventListener("mouseover", () => {
+        div1.style.display = "grid";
+        div1.style.gridTemplateColumns = "30% 70%";
+        div1.style.gridGap = "15px";
+        div1.style.margin = "10px";
+        div1.style.borderRadius = "15px";
+        div1.style.boxShadow = "rgba(0, 0, 0, 0.35) 0px 5px 15px";
+      });
+      div1.addEventListener("mouseout", () => {
+        div1.style.boxShadow = "none";
+        div1.style.display = "grid";
+        div1.style.gridTemplateColumns = "30% 70%";
+        div1.style.gridGap = "15px";
+        div1.style.margin = "10px";
+        div1.style.borderRadius = "15px";
+      });
+
+      title1.style.margin = "0";
+      title1.style.padding = "0px";
+      title1.style.fontWeight = "600";
+      title1.style.fontSize = "20px";
+
+      location1.style.padding = "0px";
+      location1.style.margin = "0";
+      distance1.style.margin = "0";
+      distance1.style.padding = "0px";
+     // div_content.style.
+      // ////source////////////////
+      image1.src = product.image;
+      title1.textContent = product.title;
+      location1.textContent = product.location;
+      distance1.textContent = product.distance + " km";
+
+      div_image.append(image1);
+
+      div_content.append(title1, location1, distance1);
+
+      div1.append(div_image, div_content);
+
+      store_details.append(div1);
+    });
+})  
+}
+geter()
+  ///////////////////////////////popup//////////
+
+  const open_modal = document.getElementById("open_modal");
+  const modal_container = document.getElementById("modal-container");
+  const close_modal = document.getElementById("close-modal");
+
+  let dunzoUser = JSON.parse(localStorage.getItem('dunzoUser'));
+
+  if(dunzoUser.length){
+    open_modal.innerText = dunzoUser[0].name;
+  }
+
+  open_modal.addEventListener("click", () => {
+    modal_container.classList.add("show");
+  });
+
+  close_modal.addEventListener("click", () => {
+    modal_container.classList.remove("show");
+  });
+</script>
