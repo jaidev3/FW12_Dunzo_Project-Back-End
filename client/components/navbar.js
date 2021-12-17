@@ -42,7 +42,7 @@ function navbar() {
                         </div>
                     </a>
                     <div class="signin">
-                        <p id="open_modal" class="signin_button">Sign in</p>
+                        <p id="open_modal" class="signin_button ">Sign in</p>
                     </div>
             </div>
 
