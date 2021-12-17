@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      rel="icon"
+      href="https://softstribe.com/app/uploads/icons/com-dunzo-user-icon.jpg"
+      type="image/icon type"
+    />
+    <title>Order From Krishna Fruits And Vegetables</title>
+    <link rel="stylesheet" href="./CSS/style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <style>
+      header {
+        position: relative;
+      }
+      #ldHolder {
+        background-color: #f7fdfa;
+      }
+      #location_detail {
+        width: 1100px;
+        margin: 0 auto;
+        padding: 20px 0px;
+      }
+      #ldt {
+        font-family: "Gilroy-Regular", sans-serif;
+        display: flex;
+        gap: 10px;
+        font-size: 14px;
+      }
+      #ldt p:nth-child(odd) {
+        color: #00d290;
+        font-weight: bold;
+        cursor: pointer;
+      }
+      #ldt p:nth-child(even) {
+        color: gray;
+        font-weight: bold;
+      }
+      #ldm {
+        display: flex;
+        gap: 40px;
+      }
+      #ldm img {
+        border-radius: 10px;
+        width: 150px;
+      }
+      #ldm div:nth-child(2) div {
+        display: flex;
+        color: gray;
+      }
+      #ldm div:nth-child(2) div i {
+        /* border: 1px solid red; */
+        color: #00d290;
+        margin: auto 0;
+        margin-right: 10px;
+      }
+      #inputContainer {
+        width: 500px;
+        margin: 10px auto;
+      }
+      #inputContainer i {
+        position: absolute;
+        padding-top: 6px;
+        padding-left: 8px;
+        font-size: 30px;
+      }
+      #searchIn {
+        font-family: "Gilroy-Regular", sans-serif;
+        border: 1px solid gainsboro;
+        border-radius: 10px;
+        font-size: 20px;
+        outline: none;
+        padding-left: 40px;
+        width: 100%;
+        height: 40px;
+      }
+      #searchIn:focus {
+        border: 1px solid #00d290;
+      }
+      #lowerDiv {
+        display: flex;
+        /* border: 1px solid red; */
+        width: 1100px;
+        margin: 0 auto;
+      }
+      #diff_cat {
+        padding-right: 15px;
+      }
+      #diff_cat p {
+        padding-top: 20px;
+        /* border: 1px solid red; */
+      }
+      #lowerDiv > div:nth-child(2) {
+        width: 500px;
+      }
+      #diff_cat p:hover {
+        font-family: "Gilroy-Regular", sans-serif;
+        cursor: pointer;
+        color: #00d290;
+      }
+      #products {
+        border-left: 1px solid gainsboro;
+        border-right: 1px solid gainsboro;
+      }
+      #products h1 {
+        margin-top: 0px;
+        padding: 15px;
+        background-color: #f3f3f5;
+        font-size: 30px;
+      }
+      #cart {
+        padding-left: 20px;
+        /* border: 1px solid red; */
+      }
+      #cartUpper {
+        font-size: 10px;
+      }
+      #cart img {
+        width: 250px;
+      }
+      hr {
+        border-top: 0px;
+      }
+    </style>
+  </head>
+  <body>
+    <header id="navbar"></header>
+    <div id="ldHolder">
+      <div id="location_detail">
+        <div id="ldt">
+          <p>Home</p>
+          <p>→</p>
+          <p>Bangalore</p>
+          <p>→</p>
+          <p>SN Traders Vegetables</p>
+        </div>
+        <div id="ldm">
+          <div>
+            <img
+              src="https://ik.imagekit.io/dunzo/dunzo-catalog-prod/tr:w-220,h-220,cm-pad_resize_store_thumbnail/stores/Z2tyRTQzenRKeW4xYW04ekxoV3BSZz09-1577703419991-store_image.jpg"
+              alt=""
+            />
+          </div>
+          <div>
+            <h1>SN Traders Vegetables</h1>
+            <div>
+              <i class="material-icons">access_time </i>
+              <p>39 mins</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr />
+
+    <div id="inputContainer">
+      <i class="material-icons">search</i>
+      <input type="search" placeholder="Search" id="searchIn" />
+    </div>
+
+    <hr />
+
+    <div>
+      <div id="lowerDiv">
+        <div id="diff_cat">
+          <p>Fresh Fruits</p>
+          <p>Latest Offers</p>
+          <p>Fresh Vegetables</p>
+          <p>Fresh Breakfast & Dairy</p>
+          <p>Crispy Snacks</p>
+        </div>
+        <div id="products">
+          <h1>Fresh Fruits</h1>
+        </div>
+        <div id="cart">
+          <div id="cartUpper">
+            <h1>Your Cart <span id="cartL"></span></h1>
+          </div>
+          <img
+            src="https://resources.dunzo.com/web-assets/prod/_next/static/images/no-items-in-cart-7e84056f44993b68d14184f9b2992af7.png"
+          />
+          <div id="addedToCrt"></div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+<script type="module">
+  import navbar from "./components/navbar.js";
+  let navbar_div = document.getElementById("navbar");
+  navbar_div.innerHTML = navbar();
+
+  function geter() {
+    console.log("hello world");
+    let config = {
+      method: "get",
+      url: "https://dunzo-masai.herokuapp.com/cart",
+    };
+    const pr = axios(config);
+    pr.then((res) => {
+      const data = res.data;
+      console.log(res.data);
+
+      // 1. Run a foreEach loop on data and console log individual product names
+      // 2. append this data  on DOM
+      // 3. createElement
+
+      let parent = document.getElementById("products");
+
+      parent.innerHTML = null;
+
+      data.forEach(function (product) {
+        let div = document.createElement("div");
+
+        div.classList.add("box");
+
+        let img = document.createElement("img");
+
+        img.src = product.image;
+
+        img.classList.add("boximg");
+
+        let product_price = document.createElement("h5");
+
+        product_price.textContent = "₹ " + product.price1;
+
+        let product_name = document.createElement("h5");
+
+        product_name.textContent = product.item;
+
+        let addtocart_btn = document.createElement("button");
+
+        addtocart_btn.classList.add("btn");
+
+        addtocart_btn.innerText = "+ ADD";
+
+        addtocart_btn.onclick = function () {
+          addtoCart(product);
+        };
+
+        var divProd = document.createElement("div");
+        divProd.classList.add("details");
+        divProd.append(product_name, product_price);
+
+        div.append(img, divProd, addtocart_btn); // HTML element
+
+        parent.append(div);
+      });
+    });
+  }
+
+  geter();
+
+  if (localStorage.getItem("dunzoCart") === null) {
+    localStorage.setItem("dunzoCart", JSON.stringify([]));
+  }
+
+  function addtoCart(p) {
+    axios.post("https://dunzo-masai.herokuapp.com/cart", p);
+    console.log(p);
+    window.location.reload(true);
+
+    // console.log(products_cart);
+    //   let products_cart = JSON.parse(localStorage.getItem("dunzoCart"));
+
+    //   products_cart.push(p);
+    // console.log(products_cart);
+    // let present = false;
+
+    // products_cart.forEach((prod) => {
+    //   if (prod.name === p.name) {
+    //     prod.qty++;
+    //     localStorage.setItem("dunzoCart", JSON.stringify(products_cart));
+    //     present = true;
+    //     return;
+    //   }
+    // });
+
+    // if (!present) {
+    //   products_cart.push(p);
+    //   localStorage.setItem("dunzoCart", JSON.stringify(products_cart));
+    // }
+    // localStorage.setItem("dunzoCart",JSON.stringify(products_cart));
+
+    // console.log("products_cart:", products_cart);
+
+    // window.location.reload(true);
+  }
+
+  let cartParent = document.getElementById("addedToCrt");
+
+  // let cart = JSON.parse(localStorage.getItem("dunzoCart"));
+  // console.log("dunzoCart:", cart.length);
+
+  document.getElementById("cartL").textContent =
+    `( ` + cart.length + ` Item's )`;
+
+  /////////////// function showCartProducts() {////////////////////////
+
+  function geter1() {
+    console.log("hello world");
+    let config = {
+      method: "get",
+      url: "https://dunzo-masai.herokuapp.com/cart",
+    };
+    const pr = axios(config);
+    pr.then((res) => {
+      const data = res.data;
+      console.log(res.data);
+
+
+      data.forEach(function (product) {
+        let div = document.createElement("div");
+
+        div.style.display = "grid";
+        div.style.gridTemplateColumns = "50% 50%";
+        let product_price = document.createElement("p");
+
+        product_price.textContent = "₹ " + product.price1;
+        //  * product.qty);
+
+        let product_name = document.createElement("p");
+
+        product_name.textContent = product.item;
+
+
+        div.append(product_name, product_price); // HTML element
+
+        cartParent.append(div);
+      });
+
+    });
+  }
+
+  // }
+  // showCartProducts();
+  geter1();
+  // Pop-up
+
+  const open_modal = document.getElementById("open_modal");
+  const modal_container = document.getElementById("modal-container");
+  const close_modal = document.getElementById("close-modal");
+
+  let dunzoUser = JSON.parse(localStorage.getItem("dunzoUser"));
+
+  if (dunzoUser.length) {
+    open_modal.innerText = dunzoUser[0].name;
+  }
+
+  open_modal.addEventListener("click", () => {
+    modal_container.classList.add("show");
+  });
+
+  close_modal.addEventListener("click", () => {
+    modal_container.classList.remove("show");
+  });
+</script>
