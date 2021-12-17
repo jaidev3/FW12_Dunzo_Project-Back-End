@@ -1,4 +1,5 @@
 # Clone of Dunzo
+Dunzo is an app that connects you to the nearest delivery partner who can make purchases, pick up items from any store or restaurant in the city and bring them to you.
 A cooperative Project worked by a group of 6 executed in 6 days.with the use of MongoDb, ExpressJs, NodeJs, HBS, EJS, JavaScript, CSS, HTML.
 
 ## How to run the app?
