@@ -27,9 +27,8 @@ router.get("", async (req,res) =>{
 
 router.get('/:id', async(req, res) => {
     try{
-        const item = await Item.find().lean().exec();
-        const product = {name: 'adnan'}
-        return res.render('singleProduct',{product})
+        const item = await Item.findById(req.params.id).lean().exec();
+        return res.render('singleProduct',{item})
     }
     catch (e) {
         return res.status(500).json({ message: e.message, status: "Failed" })

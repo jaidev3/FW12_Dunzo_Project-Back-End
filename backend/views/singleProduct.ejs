@@ -5,16 +5,100 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/itemDescription.css">
 </head>
 <body>
-    <div id="navbar"></div>
-    <h1>H!!</h1>
-    <% product.name %>
+    <header>
+        <%- include('./partials/header.ejs') -%>
+    </header>
+    <div id="store-strip">
+        <div id="store-details">
+            <div id="store-contents">
+                <div>
+                    <img src="<%=item.image%>" alt="" id="store-img">
+                </div>
+                <div>
+                    <p id="store-name">Store Name</p>
+                    <p id="store-location">Location</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div id="mid-section">
+            <div id="product-div">
+                <div>
+                    <div id="item-div">
+                        <div>
+                            <img src="<%= item.image%>" alt="" id="item-img">
+                        </div>
+                        <div>
+                            <div>
+                                <h1><%= item.item%></h1>
+                            </div>
+                            <div id="add-to-cart-outer-div">
+                                <div id="add-to-cart-div">
+                                    <button id="add-to-cart-btn">
+                                        <div>+</div>
+                                        ADD
+                                    </button>
+                                </div>
+                            </div>
+                            <p id="item-qty">250 GMS</p>
+                            <p id="item-price"><%= item.price %></p>
+                        </div>
+                    </div>
+                </div>
+                <div id="mid-line"></div>
+                <div id="information-div">
+                    <p id="information-heading">Important Information</p>
+                    <p id="information-content">The product image(s) shown are for representation purposes only. 
+                        The actual product may vary. It is recommended to read the product labels (if any), 
+                        batch details, directions for use, etc., as contained in the actual product before 
+                        consuming and/or utilizing the product. The product is meant for fresh and immediate 
+                        consumption, or as specified by the seller of the product. For other information, 
+                        please contact the merchant directly.</p>
+                </div>
+            </div>
+            <div id="cart-div"></div>
+        </div>
+        <div id="bottom-section">
+            <div id="bottom-div">
+                <div class="bottom-boxes">
+                    <div class="bottom-boxes-sub-div">
+                        <svg class="svgs" xmlns= 'http://www.w3.org/2000/svg'>
+                            <path d= "M15.7757 6.39833L11.7607 0.385C11.5865 0.128333 11.2932 0 10.9998 0C10.7065 0 10.4132 0.128333 10.239 0.394167L6.224 6.39833H1.83317C1.329 6.39833 0.916504 6.81083 0.916504 7.315C0.916504 7.3975 0.925671 7.48 0.953171 7.5625L3.2815 16.06C3.49234 16.83 4.19817 17.3983 5.0415 17.3983H16.9582C17.8015 17.3983 18.5073 16.83 18.7273 16.06L21.0557 7.5625L21.0832 7.315C21.0832 6.81083 20.6707 6.39833 20.1665 6.39833H15.7757ZM8.24984 6.39833L10.9998 2.365L13.7498 6.39833H8.24984ZM10.9998 13.7317C9.9915 13.7317 9.1665 12.9067 9.1665 11.8983C9.1665 10.89 9.9915 10.065 10.9998 10.065C12.0082 10.065 12.8332 10.89 12.8332 11.8983C12.8332 12.9067 12.0082 13.7317 10.9998 13.7317Z"
+                            ></path>
+                        </svg>
+                    </div>
+                    <h3 class="features">NO MINIMUM ORDER</h3>
+                </div>
+                <div class="bottom-boxes">
+                    <div class="bottom-boxes-sub-div">
+                        <svg class="svgs" xmlns= 'http://www.w3.org/2000/svg'>
+                            <path fill-rule='evenodd' clip-rule='evenodd' d= "M0 11C0 4.92487 4.92487 0 11 0C17.0751 0 22 4.92487 22 11C22 17.0751 17.0751 22 11 22C4.92487 22 0 17.0751 0 11ZM12.0836 4.80914C12.0753 4.3503 11.6979 3.98434 11.239 3.99016C10.7764 3.99603 10.407 4.37728 10.4156 4.83984L10.5403 11.4948L7.14231 14.0729C6.78429 14.3446 6.70499 14.8506 6.96276 15.2187C7.23377 15.6058 7.77138 15.6916 8.1494 15.4081L12.2201 12.3558L12.0836 4.80914Z"
+                            ></path>>
+                        </svg>
+                    </div>
+                    <h3 class="features">45 MINS DELIVERY</h3>
+                </div>
+                <div class="bottom-boxes">
+                    <div class="bottom-boxes-sub-div">
+                        <svg class="svgs" xmlns= "http://www.w3.org/2000/svg">
+                            <path d= "M10.6425 8.40583L8.35083 6.11417V0H10.6425V8.40583ZM17.0592 2.75H14.7675V9.16667H13.8508V0.916667H11.5592V9.3225L17.0592 14.8225V2.75ZM7.43417 1.83333H5.15167V2.915L7.43417 5.1975V1.83333ZM18.15 18.5075L1.30167 1.65917L0 2.95167L5.1425 8.09417V12.0358L2.09917 10.2942L0.559167 11.8067L7.59917 19.25H16.3442L16.8575 19.8092L18.15 18.5075Z"
+                            ></path>
+                        </svg>
+                    </div>
+                    <h3 class="features">CONTACTLESS & SAFE</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer id="footer">
+        <%- include('./partials/footer.ejs')%>
+    </footer>
 </body>
 </html>
 <script type="module">
-    import navbar from '../../../components/navbar.js';
-    console.log(navbar())
-    let navbar_div = document.getElementById('navbar');
-    navbar_div.innerHTML= navbar();
 </script>
