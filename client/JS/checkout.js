@@ -3,10 +3,11 @@ function gotoMain() {
 }
 
 function geter() {
-  console.log("hello world");
+  console.log("hello from axios geter");
   let config = {
     method: "get",
-    url: "https://dunzo-masai.herokuapp.com/cart",
+    // url: "https://dunzo-masai.herokuapp.com/cart",
+    url: "http://localhost:2345/cart",
   };
   const pr = axios(config);
   pr.then((res) => {
@@ -35,7 +36,7 @@ function cartShow(data) {
 
     let name = document.createElement(`p`);
     name.setAttribute(`id`, `nameIndividual`);
-    name.textContent = `◾ ` + el.item;
+    name.textContent = `◾ ` + el.item_id.item;
 
     let count = document.createElement(`p`);
     count.textContent = el.qty;
@@ -60,26 +61,24 @@ function cartShow(data) {
     let price = document.createElement(`p`);
     price.setAttribute(`id`, `priceIndividual`);
     // price.textContent = `₹ ` + el.price;
-    let individualPrice = el.price;
-    console.log(individualPrice);
-    price.textContent = individualPrice;
-    // totalPrice += +(el.price * el.qty);
-    if (individualPrice !== undefined) {
-      totalPrice += +individualPrice.substring(1);
-    }
-    console.log(totalPrice);
+    let individualPrice = el.item_id.price;
+    individualPrice = individualPrice.substr(1);
+    // console.log(individualPrice);
+    price.textContent = `₹ ` + individualPrice * el.qty;
+    totalPrice += +(individualPrice * el.qty);
+    // console.log(totalPrice);
 
     div.append(name, addRemove, price);
 
     displayProdBox.append(div);
   });
-  showProductCount.textContent = `( ${data.length} Items )`;
+  showProductCount.textContent = `( ${productsCount} Items )`; //-----
   showTotalPrice.textContent = `₹ ` + totalPrice;
   showTotalPriceFinal.textContent = `₹ ` + (totalPrice + 20 + 30);
 }
 // cartShow();
 function addQuantityOfProduct(product) {
-  let cart_products = JSON.parse(localStorage.getItem("dunzoCart"));
+  // let cart_products = JSON.parse(localStorage.getItem("dunzoCart"));
 
   cart_products.forEach((prod) => {
     if (prod.name === product.name) {
