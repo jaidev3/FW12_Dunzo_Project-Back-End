@@ -120,12 +120,25 @@
         border: 1px solid red;
         justify-content: space-between;
       }
+      .box button {
+        font-family: "Gilroy-Regular", sans-serif;
+        background-color: #00d290;
+        color: white;
+        width: 80px;
+        border: none;
+        height: 40px;
+        border-radius: 20px;
+        font-weight: bold;
+        margin: auto 0;
+        margin-right: 20px;
+      }
       .boximg {
         width: 150px;
+        margin-left: 20px;
+        /* border: 1px solid red; */
       }
       #cart {
         padding-left: 20px;
-        /* border: 1px solid red; */
       }
       #cartUpper {
         font-size: 10px;
@@ -238,7 +251,6 @@
         };
 
         img.src = product.image;
-
         img.classList.add("boximg");
 
         let product_price = document.createElement("h5");
