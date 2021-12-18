@@ -162,6 +162,20 @@
       hr {
         border-top: 0px;
       }
+      #addedToCrt {
+        font-size: 16px;
+        font-weight: 600;
+      }
+      .cartDiv {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+        border-top: 1px solid gainsboro;
+      }
+      .cartDiv p:nth-child(1) {
+        /* border-top: 1px solid red; */
+        font-weight: 400;
+      }
     </style>
   </head>
   <body>
@@ -220,6 +234,7 @@
             <h1>Your Cart <span id="cartL"></span></h1>
           </div>
           <img
+            id="emptyCartImg"
             src="https://resources.dunzo.com/web-assets/prod/_next/static/images/no-items-in-cart-7e84056f44993b68d14184f9b2992af7.png"
           />
           <div id="addedToCrt"></div>
@@ -352,6 +367,7 @@
   // console.log("dunzoCart:", cart.length);
 
   /////////////// function showCartProducts() {////////////////////////
+  let emptyCartImg = document.getElementById("emptyCartImg");
 
   function geter1() {
     console.log("hello world");
@@ -363,13 +379,14 @@
     pr.then((res) => {
       const data = res.data;
       console.log(res.data);
-
+      let totalProducts = 0;
       data.forEach(function (product) {
         console.log(product.item_id);
         let div = document.createElement("div");
+        div.classList.add("cartDiv");
 
-        div.style.display = "grid";
-        div.style.gridTemplateColumns = "50% 50%";
+        // div.style.display = "grid";
+        // div.style.gridTemplateColumns = "50% 50%";
         let product_price = document.createElement("p");
 
         let actual_price = product.item_id.price.split("₹");
@@ -377,17 +394,24 @@
         product_price.textContent = "₹ " + actual_price * product.qty;
         //  * product.qty);
 
+        totalProducts += +product.qty;
+
         let product_name = document.createElement("p");
 
         product_name.textContent =
-          product.item_id.item + " (" + product.qty + ")";
+          `▪ ` + product.item_id.item + ` (` + product.qty + `) `;
 
         div.append(product_name, product_price); // HTML element
 
         cartParent.append(div);
       });
+      if (totalProducts !== 0) {
+        emptyCartImg.style.display = "none";
+      } else {
+        emptyCartImg.style.display = "block";
+      }
       document.getElementById("cartL").textContent =
-        "(" + data.length + " item)";
+        `( ` + totalProducts + ` item/s )`;
     });
   }
 
