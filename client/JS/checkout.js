@@ -11,7 +11,7 @@ function geter() {
   const pr = axios(config);
   pr.then((res) => {
     const data = res.data;
-    console.log(res.data);
+    // console.log(res.data);
     cartShow(data);
   });
 }
@@ -29,7 +29,6 @@ function cartShow(data) {
   let showTotalPrice = document.getElementById(`totalPrice`);
   let totalPrice = 0;
   let showTotalPriceFinal = document.getElementById(`totalPriceFinal`);
-  console.log(data);
 
   data.forEach((el) => {
     let div = document.createElement(`div`);
