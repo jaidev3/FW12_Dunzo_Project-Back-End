@@ -25,6 +25,17 @@ router.get("", async (req,res) =>{
     }
 })
 
+router.get("/:id", async (req,res) =>{
+    try{
+        const user = await User.findById(req.params.id).lean().exec();
+        return res.render('singleProduct', {user})
+
+    }
+    catch (e) {
+        return res.status(500).json({ message: e.message, status: "Failed" })
+    }
+})
+
 
 module.exports = router;
 

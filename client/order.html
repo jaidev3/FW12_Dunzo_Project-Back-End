@@ -43,7 +43,7 @@
               <input id="open1"  type="text" placeholder="Search pickup location" />
               <div class="modal-container1" id="modal_container1">
                 <div class="modal1">
-                  <div><div ><i ></i></div><div><i class= "far fa-window-close close1" ></i><h3>Search Pickup Location</h3><div><div ><div ><div><input id="searchbar"  name="searchText" autocomplete="off" placeholder="Search for an area, location name"  value=""></div></div><div ><i height="18px" width="18px"></i><div  ><h5 id="open3" class="close1" >Select location via map</h5></div></div></div></div></div> <div id="showcontent">  <img src="https://resources.dunzo.com/web-assets/prod/_next/static/images/partner_placeholder-f479db944bcaa4a7cc8451f617179d82.png" alt="" title="" width="225" height="175" class="sc-1go0t46-0 eYEVdz"></div></div>
+                  <div><div ><i ></i></div><div><i class= "far fa-window-close close1" ></i><h3>Search Pickup Location</h3><div><div ><div ><div><input id="searchbar"  name="searchText" autocomplete="off" placeholder="Search for an area, location name"  value=""></div></div><div ><i height="18px" width="18px"></i><div  ><h5 id="open3" class="close1" >Add more details</h5></div></div></div></div></div> <div id="showcontent">  <img src="https://resources.dunzo.com/web-assets/prod/_next/static/images/partner_placeholder-f479db944bcaa4a7cc8451f617179d82.png" alt="" title="" width="225" height="175" class="sc-1go0t46-0 eYEVdz"></div></div>
                 </div>
 
               </div>
@@ -88,7 +88,7 @@
               <input type="text " id="open2" placeholder="Search drop location" />
               <div class="modal-container2" id="modal_container2">
                 <div class="modal2">
-                  <div><div ><i ></i><i  class="far fa-window-close close2"></i></div><div ><h3>Search Drop Location</h3><div ><div ><div ><div><input id="searchbar2" name="searchText" autocomplete="off" placeholder="Search for an area, location name" class="f7phya-0 htHbFw" value=""></div></div><div ><i height="18px" width="18px" ></i><div ><h5 id="open4" class="close2">Select location via map</h5></div></div></div></div></div><div id="showcontent2"><img src="https://resources.dunzo.com/web-assets/prod/_next/static/images/partner_placeholder-f479db944bcaa4a7cc8451f617179d82.png" alt="" title="" width="225" height="175" class="sc-1go0t46-0 eYEVdz"></div>
+                  <div><div ><i ></i><i  class="far fa-window-close close2"></i></div><div ><h3>Search Drop Location</h3><div ><div ><div ><div><input id="searchbar2" name="searchText" autocomplete="off" placeholder="Search for an area, location name" class="f7phya-0 htHbFw" value=""></div></div><div ><i height="18px" width="18px" ></i><div ><h5 id="open4" class="close2">Add more details</h5></div></div></div></div></div><div id="showcontent2"><img src="https://resources.dunzo.com/web-assets/prod/_next/static/images/partner_placeholder-f479db944bcaa4a7cc8451f617179d82.png" alt="" title="" width="225" height="175" class="sc-1go0t46-0 eYEVdz"></div>
                   </div>
                 </div>
               </div>
@@ -189,6 +189,7 @@
     </div>
   </body>
 </html>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script type="module">
 
   import navbar from "./components/navbar.js";
@@ -400,134 +401,18 @@ localStorage.setItem("cart",JSON.stringify(arr))
     return Math.floor(Math.random()*(max-min+1)+min);
 }
 
-let data = [
-{
-    StreetAddress: "Highland Drive",
-    Country: "India",
-    State: "Maharastra",
-    City: "Mumbai",
-    Zipcode: "121201"
-  },
- 
-  {
-    StreetAddress: "Devon Court",
-    Country: "India",
-    State: "Maharastra",
-    City: "Mumbai",
-    Zipcode: "121201"
-  },
-  {
-    StreetAddress: "Cottage Street",
-    Country: "India",
-    State: "Maharastra",
-    City: "Mumbai",
-    Zipcode: "121201"
-  },
-  {
-    StreetAddress: "Front Street North",
-    Country: "India",
-    State: "Maharastra",
-    City: "Mumbai",
-    Zipcode: "121201"
-  },
 
-  {
-    StreetAddress: "Forest Street",
-    Country: "India",
-    State: "Maharastra",
-    City: "Mumbai",
-    Zipcode: "121201"
-  },
-  {
-    StreetAddress: "Jefferson Avenue",
-    Country: "India",
-    State: "Maharastra",
-    City: "Mumbai",
-    Zipcode: "121201"
-  },
-  {
-    StreetAddress: "Essex Court",
-    Country: "India",
-    State: "Maharastra",
-    City: "Mumbai",
-    Zipcode: "121201"
-  },
-  {
-    StreetAddress: "Charles Street",
-    Country: "India",
-    State: "Maharastra",
-    City: "Mumbai",
-    Zipcode: "121201"
-  },
-  {
-    StreetAddress: "Willow Avenue",
-    Country: "India",
-    State: "Maharastra",
-    City: "Mumbai",
-    Zipcode: "121201"
-  },
-  {
-    StreetAddress: "Briarwood Drive",
-    Country: "India",
-    State: "Maharastra",
-    City: "Mumbai",
-    Zipcode: "121201"
-  },
-  {
-    StreetAddress: "Laurel Drive",
-    Country: "India",
-    State: "Maharastra",
-    City: "Mumbai",
-    Zipcode: "121201"
-  },
-  {
-    StreetAddress: "Franklin Avenue",
-    Country: "India",
-    State: "Maharastra",
-    City: "Mumbai",
-    Zipcode: "121201"
-  },
-  {
-    StreetAddress: "Route 30",
-    Country: "India",
-    State: "Maharastra",
-    City: "Mumbai",
-    Zipcode: "121201"
-  },
-
-  {
-    StreetAddress: "Ann Street",
-    Country: "India",
-    State: "Maharastra",
-    City: "Mumbai",
-    Zipcode: "121201"
-  },
-
-  {
-    StreetAddress: "Summit Avenue",
-    Country: "India",
-    State: "Maharastra",
-    City: "Mumbai",
-    Zipcode: "121201"
-  },
-  {
-    StreetAddress: "Pleasant Street",
-    Country: "India",
-    State: "Maharastra",
-    City: "Mumbai",
-    Zipcode: "121201"
-  }
-]
-
-// function showAdress(){
-  
-
-// }
 
 // showAdress()
 
 //pickup location
- 
+
+function makerequest() {
+ console.log("Button Clicked")
+ axios('http://localhost:2345/location')
+  .then((res) => {
+   var data =(res.data)
+     
 let search =document.getElementById("searchbar")
 
 search.addEventListener("keyup",(e)=>{
@@ -538,9 +423,13 @@ search.style.border = "1px solid rgb(16 213 151)"
   let searchString =e.target.value
 console.log(searchString)
 
-  let filteredchar= data.filter(chracter=>{
-    return chracter.StreetAddress.includes(searchString)
-  })
+
+ var filteredchar= data.filter(chracter=>{
+    return chracter.Street_Address.includes(searchString)
+  })  
+
+
+ 
 
   let adressList =filteredchar
   console.log(adressList)
@@ -553,7 +442,7 @@ showcontent.append(heading)
 
     let p = document.createElement("p")
   
-    p.textContent = e.StreetAddress + ", "+ e.Country + ", "+e.State+", "+e.City
+    p.textContent = e.Street_Address + ", "+ e.Country + ", "+e.State+", "+e.City
     p.addEventListener("click",()=>{
       console.log(p.textContent)
       let input1 = document.getElementById("open1")
@@ -588,7 +477,7 @@ search2.style.border = "1px solid rgb(16 213 151)"
   let searchString =e.target.value
 
   let filteredchar= data.filter(chracter=>{
-    return chracter.StreetAddress.includes(searchString)
+    return chracter.Street_Address.includes(searchString)
   })
   let adressList =filteredchar
   console.log(adressList)
@@ -601,7 +490,7 @@ showcontent2.append(heading)
 
     let p = document.createElement("p")
   
-    p.textContent = e.StreetAddress + ", "+ e.Country + ", "+e.State+", "+e.City
+    p.textContent = e.Street_Address + ", "+ e.Country + ", "+e.State+", "+e.City
     p.addEventListener("click",()=>{
       console.log(p.textContent)
       let input1 = document.getElementById("open2")
@@ -625,5 +514,14 @@ showcontent2.append(heading)
 
 })
 
+  })
+ 
+
+  
+}
+makerequest()
+
 
   </script>
+
+
