@@ -29,7 +29,6 @@ function cartShow(data) {
   let showTotalPrice = document.getElementById(`totalPrice`);
   let totalPrice = 0;
   let showTotalPriceFinal = document.getElementById(`totalPriceFinal`);
-  console.log(data);
 
   data.forEach((el) => {
     let div = document.createElement(`div`);
@@ -61,9 +60,14 @@ function cartShow(data) {
     let price = document.createElement(`p`);
     price.setAttribute(`id`, `priceIndividual`);
     // price.textContent = `₹ ` + el.price;
-    price.textContent = el.price;
+    let individualPrice = el.price;
+    console.log(individualPrice);
+    price.textContent = individualPrice;
     // totalPrice += +(el.price * el.qty);
-    totalPrice += el.price;
+    if (individualPrice !== undefined) {
+      totalPrice += +individualPrice.substring(1);
+    }
+    console.log(totalPrice);
 
     div.append(name, addRemove, price);
 
