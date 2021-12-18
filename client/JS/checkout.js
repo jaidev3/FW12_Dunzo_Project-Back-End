@@ -4,10 +4,14 @@ function gotoMain() {
 
 //Display cart in Right Panel - START
 let displayProdBox = document.getElementById(`p-r-t-b`);
+const cart_items = axios.get('http://localhost:2345/cart');
+cart_items.then(res => {
+  const data = res.data
+  cartShow(data);
+})
 
-function cartShow() {
+function cartShow(products) {
   //Get cart details
-  let products = JSON.parse(localStorage.getItem(`dunzoCart`));
   displayProdBox.innerHTML = null;
   let showProductCount = document.getElementById(`count`);
   let productsCount = 0;
@@ -29,13 +33,14 @@ function cartShow() {
     let buttonRemove = document.createElement(`button`);
     buttonRemove.textContent = `-`;
     buttonRemove.onclick = () => {
-      removeQuantityOfProduct(el);
+      removeQuantityOfProduct(el.item_id._id);
     };
 
     let buttonAdd = document.createElement(`button`);
     buttonAdd.textContent = `+`;
     buttonAdd.onclick = () => {
-      addQuantityOfProduct(el);
+      console.log(el.item_id)
+      addQuantityOfProduct(el.item_id._id);
     };
 
     let addRemove = document.createElement(`div`);
@@ -55,39 +60,26 @@ function cartShow() {
   showTotalPrice.textContent = `₹ ` + totalPrice;
   showTotalPriceFinal.textContent = `₹ ` + (totalPrice + 20 + 30);
 }
-cartShow();
-function addQuantityOfProduct(product) {
-  let cart_products = JSON.parse(localStorage.getItem("dunzoCart"));
+// cartShow();
+async function addQuantityOfProduct(product_id) {
+  const cart_items = await axios.post(`http://localhost:2345/cart/${product_id}`);
+  console.log(cart_items)
+  cartShow(cart_items.data);
 
-  cart_products.forEach((prod) => {
-    if (prod.name === product.name) {
-      prod.qty++;
-      localStorage.setItem("dunzoCart", JSON.stringify(cart_products));
-      cartShow();
-      // return;
-    }
-  });
+  // cart_products.forEach((prod) => {
+  //   if (prod.name === product.name) {
+  //     prod.qty++;
+  //     localStorage.setItem("dunzoCart", JSON.stringify(cart_products));
+  //     cartShow();
+  //     // return;
+  //   }
+  // });
 }
-function removeQuantityOfProduct(product) {
-  let cart_products = JSON.parse(localStorage.getItem("dunzoCart"));
+async function removeQuantityOfProduct(product_id) {
+  const cart_items = await axios.delete(`http://localhost:2345/cart/${product_id}`);
+  console.log(cart_items)
 
-  let indexOfProduct = -1;
-
-  for (let i = 0; i < cart_products.length; i++) {
-    if (cart_products[i].name == product.name) {
-      indexOfProduct = i;
-      break;
-    }
-  }
-
-  if (cart_products[indexOfProduct].qty > 1) {
-    cart_products[indexOfProduct].qty--;
-  } else {
-    cart_products.splice(indexOfProduct, 1);
-  }
-
-  localStorage.setItem("dunzoCart", JSON.stringify(cart_products));
-  cartShow();
+  cartShow(cart_items.data);
 }
 //Display cart in Right Panel ---- END
 
