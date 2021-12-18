@@ -676,6 +676,8 @@ grid-gap: 1%;
 }
 .modal3 input{
   width: 60%;
+  color: white;
+  padding-top: 10px;
 }
 .modal3 button{
   margin-left: 40px;
@@ -767,6 +769,8 @@ grid-gap: 1%;
 }
 .modal4 input{
   width: 60%;
+  color: white;
+  padding-top: 10px;
 }
 .modal4 button{
   margin-left: 40px;
@@ -835,5 +839,9 @@ button>a{
 
 
 #showcontent img{
+  width: 50%;
+}
+
+#showcontent2 img{
   width: 50%;
 }

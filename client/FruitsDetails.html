@@ -254,7 +254,7 @@
     console.log("hello world");
     let config = {
       method: "get",
-      url: "http://localhost:2345/item",
+      url: "https://dunzo-masai.herokuapp.com/item",
     };
     const pr = axios(config);
     pr.then((res) => {
@@ -316,7 +316,7 @@
   }
 
   function addtoCart(p) {
-    axios.post("http://localhost:2345/cart", p);
+    axios.post("https://dunzo-masai.herokuapp.com/cart", p);
     console.log(p);
     window.location.reload(true);
 
@@ -360,7 +360,7 @@
     console.log("hello world");
     let config = {
       method: "get",
-      url: "http://localhost:2345/cart",
+      url: "https://dunzo-masai.herokuapp.com/cart",
     };
     const pr = axios(config);
     pr.then((res) => {

@@ -7,25 +7,31 @@ const dotenv = require('dotenv');
 const storeController = require("./controllers/store.controller");
 const itemController = require("./controllers/item.controller");
 const cartController = require("./controllers/cart.controller");
+
+
+const locationController= require("./controllers/location.controller")
+
+
+
 const app = express();
 
 ////////configs/////////////////
-dotenv.config();
+require("dotenv").config()
+
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(cors());
 app.use(express.static("public"));
 
-
+app.set('view engine', 'ejs')
+app.use(express.static('public'))
 // app.get('/', (req,res) => {
 //     res.send("This is backend")
 // })
 
 
-app.set('view engine', 'ejs');
-
 app.use("/store", storeController)
 app.use("/item", itemController)
 app.use("/cart", cartController)
-
+app.use("/location",locationController)
 module.exports = app;

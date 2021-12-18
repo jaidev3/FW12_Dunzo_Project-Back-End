@@ -1,13 +1,13 @@
 const express = require('express');
 
-const Item = require('../models/item.model');
+const User = require('../models/item.model');
 
 const router = express.Router();
 
 router.post("", async (req,res) =>{
     try{
-        const item = await Item.create(req.body);
-        return res.status(201).send(item)
+        const user = await User.create(req.body);
+        return res.status(201).send(user)
     }
     catch (e) {
         return res.status(500).json({ message: e.message, status: "Failed" })
@@ -17,18 +17,19 @@ router.post("", async (req,res) =>{
 
 router.get("", async (req,res) =>{
     try{
-        const items = await Item.find().lean().exec();
-        return res.status(201).send(items)
+        const user = await User.find().lean().exec();
+        return res.status(201).send(user)
     }
     catch (e) {
         return res.status(500).json({ message: e.message, status: "Failed" })
     }
 })
 
-router.get('/:id', async(req, res) => {
+router.get("/:id", async (req,res) =>{
     try{
-        const item = await Item.findById(req.params.id).lean().exec();
-        return res.render('singleProduct',{item})
+        const user = await User.findById(req.params.id).lean().exec();
+        return res.render('singleProduct', {user})
+
     }
     catch (e) {
         return res.status(500).json({ message: e.message, status: "Failed" })
