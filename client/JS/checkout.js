@@ -73,7 +73,7 @@ function cartShow(data) {
 
     displayProdBox.append(div);
   });
-  showProductCount.textContent = `( ${productsCount} Items )`;
+  showProductCount.textContent = `( ${data.length} Items )`;
   showTotalPrice.textContent = `₹ ` + totalPrice;
   showTotalPriceFinal.textContent = `₹ ` + (totalPrice + 20 + 30);
 }
