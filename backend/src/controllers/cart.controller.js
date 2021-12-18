@@ -4,10 +4,17 @@ const User = require('../models/cart.model');
 
 const router = express.Router();
 
-router.post("", async (req,res) =>{
+router.post("/:item_id", async (req,res) =>{
     try{
-        const user = await User.create(req.body);
-        return res.status(201).send(user)
+        const user = await User.find({item_id: req.params.item_id}).lean().exec();
+        if (!user.length){
+            const cart_item = await User.create({item_id: req.params.item_id, qty: 1});
+            // return res.status(201).send(cart_item);
+        } else{
+            const cart_item = await User.findOneAndUpdate({item_id: req.params.item_id}, {qty: user[0].qty + 1}, {new: true}).lean().exec();
+        }
+        const cart_items = await User.find().populate('item_id').lean().exec();
+        return res.status(201).send(cart_items);
     }
     catch (e) {
         return res.status(500).json({ message: e.message, status: "Failed" })
@@ -17,7 +24,18 @@ router.post("", async (req,res) =>{
 
 router.get("", async (req,res) =>{
     try{
-        const user = await User.find().lean().exec();
+        const user = await User.find().populate('item_id').lean().exec();
+        return res.status(201).send(user)
+    }
+    catch (e) {
+        return res.status(500).json({ message: e.message, status: "Failed" })
+    }
+})
+
+router.delete("/:id", async (req,res) =>{
+    try{
+        console.log('in delete api')
+        const user = await User.findByIdAndDelete(req.params.id).lean().exec();
         return res.status(201).send(user)
     }
     catch (e) {
