@@ -34,7 +34,6 @@ router.get("", async (req,res) =>{
 
 router.delete("/:id", async (req,res) =>{
     try{
-        console.log('in delete api')
         const user = await User.findByIdAndDelete(req.params.id).lean().exec();
         return res.status(201).send(user)
     }
