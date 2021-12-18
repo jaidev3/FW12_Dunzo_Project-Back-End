@@ -271,18 +271,22 @@
 
       data.forEach(function (product) {
         let div = document.createElement("div");
-
         div.classList.add("box");
-
+        
         let img = document.createElement("img");
-
+        img.onclick = () => {
+          // console.log(product._id);
+          // gotoItemDescription(product._id);
+          window.location.href = `http://localhost:2345/item/${product._id}`
+        }
+        
         img.src = product.image;
 
         img.classList.add("boximg");
 
         let product_price = document.createElement("h5");
 
-        product_price.textContent = "₹ " + product.price1;
+        product_price.textContent = product.price;
 
         let product_name = document.createElement("h5");
 
@@ -295,7 +299,7 @@
         addtocart_btn.innerText = "+ ADD";
 
         addtocart_btn.onclick = function () {
-          addtoCart(product);
+          addtoCart(product._id);
         };
 
         var divProd = document.createElement("div");
@@ -311,14 +315,29 @@
 
   geter();
 
+  function gotoItemDescription(prod_id){
+    console.log(prod_id)
+    let config = {
+      method: "get",
+      url: `https://localhost:2345/item/${prod_id}`,
+    };
+    const pr = axios(config);
+    pr.then((res) => {
+      const data = res.data;
+      console.log(res.data);
+  });
+}
+
   if (localStorage.getItem("dunzoCart") === null) {
     localStorage.setItem("dunzoCart", JSON.stringify([]));
   }
-
-  function addtoCart(p) {
-    axios.post("https://dunzo-masai.herokuapp.com/cart", p);
-    console.log(p);
-    window.location.reload(true);
+  
+  let cartParent = document.getElementById("addedToCrt");
+  async function addtoCart(p) {
+    let cart_items = await axios.post(`http://localhost:2345/cart/${p}`);
+    cartParent.innerHTML = null;
+    geter1();
+    // window.location.reload(true);
 
     // console.log(products_cart);
     //   let products_cart = JSON.parse(localStorage.getItem("dunzoCart"));
@@ -347,46 +366,48 @@
     // window.location.reload(true);
   }
 
-  let cartParent = document.getElementById("addedToCrt");
 
   // let cart = JSON.parse(localStorage.getItem("dunzoCart"));
   // console.log("dunzoCart:", cart.length);
 
-  document.getElementById("cartL").textContent = "(" + cart.length + " item)";
-
+  
   /////////////// function showCartProducts() {////////////////////////
-
-  function geter1() {
-    console.log("hello world");
-    let config = {
-      method: "get",
-      url: "https://dunzo-masai.herokuapp.com/cart",
-    };
-    const pr = axios(config);
-    pr.then((res) => {
-      const data = res.data;
-      console.log(res.data);
-
-      data.forEach(function (product) {
-        let div = document.createElement("div");
-
-        div.style.display = "grid";
-        div.style.gridTemplateColumns = "50% 50%";
-        let product_price = document.createElement("p");
-
-        product_price.textContent = "₹ " + product.price1;
-        //  * product.qty);
-
-        let product_name = document.createElement("p");
-
-        product_name.textContent = product.item;
-
-        div.append(product_name, product_price); // HTML element
-
-        cartParent.append(div);
+    
+    function geter1() {
+      console.log("hello world");
+      let config = {
+        method: "get",
+        url: "http://localhost:2345/cart",
+      };
+      const pr = axios(config);
+      pr.then((res) => {
+        const data = res.data;
+        console.log(res.data);
+        
+        data.forEach(function (product) {
+          console.log(product.item_id);
+          let div = document.createElement("div");
+          
+          div.style.display = "grid";
+          div.style.gridTemplateColumns = "50% 50%";
+          let product_price = document.createElement("p");
+          
+          let actual_price = product.item_id.price.split('₹');
+          actual_price = +actual_price[1]
+          product_price.textContent = "₹ " + (actual_price * product.qty);
+          //  * product.qty);
+          
+          let product_name = document.createElement("p");
+          
+          product_name.textContent = product.item_id.item + ' (' + product.qty + ')';
+          
+          div.append(product_name, product_price); // HTML element
+          
+          cartParent.append(div);
+        });
+        document.getElementById("cartL").textContent = "(" + data.length + " item)";
       });
-    });
-  }
+    }
 
   // }
   // showCartProducts();
