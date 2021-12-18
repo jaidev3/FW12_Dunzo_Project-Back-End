@@ -2,6 +2,22 @@ function gotoMain() {
   window.location.href = `index.html`;
 }
 
+function geter() {
+  console.log("hello from axios geter");
+  let config = {
+    method: "get",
+    // url: "https://dunzo-masai.herokuapp.com/cart",
+    url: "http://localhost:2345/cart",
+  };
+  const pr = axios(config);
+  pr.then((res) => {
+    const data = res.data;
+    console.log(res.data);
+    cartShow(data);
+  });
+}
+geter();
+
 //Display cart in Right Panel - START
 let displayProdBox = document.getElementById(`p-r-t-b`);
 const cart_items = axios.get('http://localhost:2345/cart');
@@ -10,8 +26,10 @@ cart_items.then(res => {
   cartShow(data);
 })
 
+
 function cartShow(products) {
   //Get cart details
+  
   displayProdBox.innerHTML = null;
   let showProductCount = document.getElementById(`count`);
   let productsCount = 0;
@@ -19,12 +37,12 @@ function cartShow(products) {
   let totalPrice = 0;
   let showTotalPriceFinal = document.getElementById(`totalPriceFinal`);
 
-  products.forEach((el) => {
+  data.forEach((el) => {
     let div = document.createElement(`div`);
 
     let name = document.createElement(`p`);
     name.setAttribute(`id`, `nameIndividual`);
-    name.textContent = `◾ ` + el.name;
+    name.textContent = `◾ ` + el.item_id.item;
 
     let count = document.createElement(`p`);
     count.textContent = el.qty;
@@ -49,18 +67,24 @@ function cartShow(products) {
 
     let price = document.createElement(`p`);
     price.setAttribute(`id`, `priceIndividual`);
-    price.textContent = `₹ ` + el.price * el.qty;
-    totalPrice += +(el.price * el.qty);
+    // price.textContent = `₹ ` + el.price;
+    let individualPrice = el.item_id.price;
+    individualPrice = individualPrice.substr(1);
+    // console.log(individualPrice);
+    price.textContent = `₹ ` + individualPrice * el.qty;
+    totalPrice += +(individualPrice * el.qty);
+    // console.log(totalPrice);
 
     div.append(name, addRemove, price);
 
     displayProdBox.append(div);
   });
-  showProductCount.textContent = `( ${productsCount} Items )`;
+  showProductCount.textContent = `( ${productsCount} Items )`; //-----
   showTotalPrice.textContent = `₹ ` + totalPrice;
   showTotalPriceFinal.textContent = `₹ ` + (totalPrice + 20 + 30);
 }
 // cartShow();
+
 async function addQuantityOfProduct(product_id) {
   const cart_items = await axios.post(`http://localhost:2345/cart/${product_id}`);
   console.log(cart_items)
@@ -74,6 +98,7 @@ async function addQuantityOfProduct(product_id) {
   //     // return;
   //   }
   // });
+
 }
 async function removeQuantityOfProduct(product_id) {
   const cart_items = await axios.delete(`http://localhost:2345/cart/${product_id}`);
