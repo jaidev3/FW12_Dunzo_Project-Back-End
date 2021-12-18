@@ -2,25 +2,41 @@ function gotoMain() {
   window.location.href = `index.html`;
 }
 
+function geter() {
+  console.log("hello world");
+  let config = {
+    method: "get",
+    url: "https://dunzo-masai.herokuapp.com/cart",
+  };
+  const pr = axios(config);
+  pr.then((res) => {
+    const data = res.data;
+    console.log(res.data);
+    cartShow(data);
+  });
+}
+geter();
+
 //Display cart in Right Panel - START
 let displayProdBox = document.getElementById(`p-r-t-b`);
 
-function cartShow() {
+function cartShow(data) {
   //Get cart details
-  let products = JSON.parse(localStorage.getItem(`dunzoCart`));
+  // let products = JSON.parse(localStorage.getItem(`dunzoCart`));
   displayProdBox.innerHTML = null;
   let showProductCount = document.getElementById(`count`);
   let productsCount = 0;
   let showTotalPrice = document.getElementById(`totalPrice`);
   let totalPrice = 0;
   let showTotalPriceFinal = document.getElementById(`totalPriceFinal`);
+  console.log(data);
 
-  products.forEach((el) => {
+  data.forEach((el) => {
     let div = document.createElement(`div`);
 
     let name = document.createElement(`p`);
     name.setAttribute(`id`, `nameIndividual`);
-    name.textContent = `◾ ` + el.name;
+    name.textContent = `◾ ` + el.item;
 
     let count = document.createElement(`p`);
     count.textContent = el.qty;
@@ -44,8 +60,10 @@ function cartShow() {
 
     let price = document.createElement(`p`);
     price.setAttribute(`id`, `priceIndividual`);
-    price.textContent = `₹ ` + el.price * el.qty;
-    totalPrice += +(el.price * el.qty);
+    // price.textContent = `₹ ` + el.price;
+    price.textContent = el.price;
+    // totalPrice += +(el.price * el.qty);
+    totalPrice += el.price;
 
     div.append(name, addRemove, price);
 
@@ -55,7 +73,7 @@ function cartShow() {
   showTotalPrice.textContent = `₹ ` + totalPrice;
   showTotalPriceFinal.textContent = `₹ ` + (totalPrice + 20 + 30);
 }
-cartShow();
+// cartShow();
 function addQuantityOfProduct(product) {
   let cart_products = JSON.parse(localStorage.getItem("dunzoCart"));
 
