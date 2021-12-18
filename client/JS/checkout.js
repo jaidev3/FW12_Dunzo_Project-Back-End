@@ -11,7 +11,7 @@ function geter() {
   const pr = axios(config);
   pr.then((res) => {
     const data = res.data;
-    // console.log(res.data);
+    console.log(res.data);
     cartShow(data);
   });
 }
@@ -60,9 +60,14 @@ function cartShow(data) {
     let price = document.createElement(`p`);
     price.setAttribute(`id`, `priceIndividual`);
     // price.textContent = `₹ ` + el.price;
-    price.textContent = el.price;
+    let individualPrice = el.price;
+    console.log(individualPrice);
+    price.textContent = individualPrice;
     // totalPrice += +(el.price * el.qty);
-    totalPrice += el.price;
+    if (individualPrice !== undefined) {
+      totalPrice += +individualPrice.substring(1);
+    }
+    console.log(totalPrice);
 
     div.append(name, addRemove, price);
 
