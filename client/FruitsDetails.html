@@ -277,9 +277,11 @@
 
         let img = document.createElement("img");
         img.onclick = () => {
-          // console.log(product._id);
+          console.log(product._id);
           // gotoItemDescription(product._id);
-          window.location.href = `http://localhost:2345/item/${product._id}`;
+
+          window.location.href = `http://localhost:5000/item/${product._id}`;
+
         };
 
         img.src = product.image;
@@ -320,7 +322,7 @@
     console.log(prod_id);
     let config = {
       method: "get",
-      url: `https://localhost:2345/item/${prod_id}`,
+      url: `http://localhost:5000/item/${prod_id}`,
     };
     const pr = axios(config);
     pr.then((res) => {
@@ -335,7 +337,7 @@
 
   let cartParent = document.getElementById("addedToCrt");
   async function addtoCart(p) {
-    let cart_items = await axios.post(`http://localhost:2345/cart/${p}`);
+    let cart_items = await axios.post(`http://localhost:5000/cart/${p}`);
     cartParent.innerHTML = null;
     geter1();
     // window.location.reload(true);
@@ -377,7 +379,7 @@
     console.log("hello world");
     let config = {
       method: "get",
-      url: "http://localhost:2345/cart",
+      url: "http://localhost:5000/cart",
     };
     const pr = axios(config);
     pr.then((res) => {

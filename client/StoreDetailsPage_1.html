@@ -110,7 +110,7 @@
       <div id="page_nav">
         <div class="width_content">
           <div class="flex items-center space-x-1 specialmargin">
-            <a
+            <div
               href="StoreDetailsPage_1.html"
               class="
                 flex
@@ -136,9 +136,9 @@
                   d="M11 17l-5-5m0 0l5-5m-5 5h12"
                 />
               </svg>
-            </a>
+            </div>
 
-            <a
+            <div
               href="StoreDetailsPage_1.html"
               class="
                 px-4
@@ -150,8 +150,8 @@
               "
             >
               1
-            </a>
-            <a
+          </div>
+            <div
               href="StoreDetailsPage_2.html"
               class="
                 px-4
@@ -163,8 +163,8 @@
               "
             >
               2
-            </a>
-            <a
+        </div>
+            <div
               href="StoreDetailsPage_3.html"
               class="
                 px-4
@@ -176,8 +176,8 @@
               "
             >
               3
-            </a>
-            <a
+      </div>
+            <div
               href="StoreDetailsPage_3.html"
               class="
                 px-4
@@ -202,7 +202,7 @@
                   d="M13 7l5 5m0 0l-5 5m5-5H6"
                 />
               </svg>
-            </a>
+            </div>
           </div>
         </div>
       </div>
@@ -230,7 +230,7 @@
     console.log("hello world");
    let  config={
         method: 'get',
-        url: 'https://dunzo-masai.herokuapp.com/store'
+        url: `https://dunzo-masai.herokuapp.com/store?page=1&size=14`
     }
     const pr =axios(config); 
     pr.then((res) => {
