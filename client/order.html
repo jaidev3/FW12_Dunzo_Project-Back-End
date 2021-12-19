@@ -409,7 +409,7 @@ localStorage.setItem("cart",JSON.stringify(arr))
 
 function makerequest() {
  console.log("Button Clicked")
- axios('http://localhost:5000/location')
+ axios('https://masai-dunzo.herokuapp.com/location')
   .then((res) => {
    var data =(res.data)
      

@@ -256,7 +256,7 @@
     console.log("hello world");
     let config = {
       method: "get",
-      url: "https://dunzo-masai.herokuapp.com/item",
+      url: "https://masai-dunzo.herokuapp.com/item",
     };
     const pr = axios(config);
     pr.then((res) => {
@@ -280,7 +280,7 @@
           console.log(product._id);
           // gotoItemDescription(product._id);
 
-          window.location.href = `http://localhost:5000/item/${product._id}`;
+          window.location.href = `https://masai-dunzo.herokuapp.com/item/${product._id}`;
 
         };
 
@@ -322,7 +322,7 @@
     console.log(prod_id);
     let config = {
       method: "get",
-      url: `http://localhost:5000/item/${prod_id}`,
+      url: `https://masai-dunzo.herokuapp.com/item/${prod_id}`,
     };
     const pr = axios(config);
     pr.then((res) => {
@@ -337,7 +337,7 @@
 
   let cartParent = document.getElementById("addedToCrt");
   async function addtoCart(p) {
-    let cart_items = await axios.post(`http://localhost:5000/cart/${p}`);
+    let cart_items = await axios.post(`https://masai-dunzo.herokuapp.com/cart/${p}`);
     cartParent.innerHTML = null;
     geter1();
     // window.location.reload(true);
@@ -379,7 +379,7 @@
     console.log("hello world");
     let config = {
       method: "get",
-      url: "http://localhost:5000/cart",
+      url: "https://masai-dunzo.herokuapp.com/cart",
     };
     const pr = axios(config);
     pr.then((res) => {

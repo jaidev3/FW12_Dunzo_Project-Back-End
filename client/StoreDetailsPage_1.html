@@ -111,8 +111,7 @@
         <div class="width_content">
           <div class="flex items-center space-x-1 specialmargin">
             <div
-              href="StoreDetailsPage_1.html"
-              class="
+              class="btn0
                 flex
                 items-center
                 px-4
@@ -139,8 +138,8 @@
             </div>
 
             <div
-              href="StoreDetailsPage_1.html"
-              class="
+              
+              class="btn1
                 px-4
                 py-2
                 text-gray-700
@@ -152,8 +151,8 @@
               1
           </div>
             <div
-              href="StoreDetailsPage_2.html"
-              class="
+          
+              class="btn2
                 px-4
                 py-2
                 text-gray-700
@@ -165,8 +164,8 @@
               2
         </div>
             <div
-              href="StoreDetailsPage_3.html"
-              class="
+             
+              class="btn3
                 px-4
                 py-2
                 text-gray-700
@@ -178,8 +177,8 @@
               3
       </div>
             <div
-              href="StoreDetailsPage_3.html"
-              class="
+             
+              class="btn4
                 px-4
                 py-2
                 text-gray-500
@@ -228,9 +227,14 @@
   var data;
   function geter(){
     console.log("hello world");
+//     var pager=1;
+// var btn2 = document.getElementById("btn2");
+// btn2.addEventListener("click", ()=>{
+//   pager=2
+// })
    let  config={
         method: 'get',
-        url: `https://dunzo-masai.herokuapp.com/store?page=1&size=14`
+        url: `https://masai-dunzo.herokuapp.com/store?page=1&size=14`
     }
     const pr =axios(config); 
     pr.then((res) => {

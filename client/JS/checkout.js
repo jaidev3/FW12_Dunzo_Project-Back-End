@@ -7,7 +7,7 @@ function geter() {
   let config = {
     method: "get",
     // url: "https://dunzo-masai.herokuapp.com/cart",
-    url: "http://localhost:5000/cart",
+    url: "https://masai-dunzo.herokuapp.com/cart",
   };
   const pr = axios(config);
   pr.then((res) => {
@@ -20,7 +20,7 @@ geter();
 
 // Display cart in Right Panel - START
 let displayProdBox = document.getElementById(`p-r-t-b`);
-const cart_items = axios.get('http://localhost:5000/cart');
+const cart_items = axios.get('https://masai-dunzo.herokuapp.com//cart');
 cart_items.then(res => {
   const data = res.data
   cartShow(data);
@@ -86,7 +86,7 @@ function cartShow(products) {
 // cartShow();
 
 async function addQuantityOfProduct(product_id) {
-  const cart_items = await axios.post(`http://localhost:5000/cart/${product_id}`);
+  const cart_items = await axios.post(`https://masai-dunzo.herokuapp.com/cart/${product_id}`);
   console.log(cart_items)
   cartShow(cart_items.data);
 
@@ -101,7 +101,7 @@ async function addQuantityOfProduct(product_id) {
 
 }
 async function removeQuantityOfProduct(product_id) {
-  const cart_items = await axios.delete(`http://localhost:5000/cart/${product_id}`);
+  const cart_items = await axios.delete(`https://masai-dunzo.herokuapp.com/cart/${product_id}`);
   console.log(cart_items)
 
   cartShow(cart_items.data);
