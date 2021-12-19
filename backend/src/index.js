@@ -76,8 +76,8 @@ app.post('/step3', function(req, res) {
 });
 
 ///////////////////////////////
-
-app.listen(process.env.PORT || 2345, async function(){
+const port =process.env.PORT || 2345;
+app.listen(port, async function(){
     await connect();
-    console.log("listening on port 2345")
+    console.log(`listening on port ${port}`)
 })

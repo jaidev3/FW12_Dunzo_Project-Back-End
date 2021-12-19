@@ -1,5 +1,5 @@
 function navbar() {
-  return ` 
+    return ` 
     <div class="header_box">
             <div class="header_left">
                 <a href="./index.html">
@@ -143,6 +143,6 @@ function navbar() {
                 </div>
             </div>
         </div>`;
-}
-
-export default navbar;
+  }
+  
+  export default navbar;
