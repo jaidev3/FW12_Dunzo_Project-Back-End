@@ -11,7 +11,7 @@ var { engine }  = require('express-handlebars');
 var bodyParser = require('body-parser');
 
 app.engine('handlebars', engine({defaultLayout: 'main'}));
-app.set('view engine', 'handlebars');
+// app.set('view engine', 'handlebars');
 app.use(bodyParser.urlencoded({ extended : true }));
 
 
